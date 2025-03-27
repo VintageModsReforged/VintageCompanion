@@ -17,4 +17,6 @@ public interface IToolsProvider {
     Item getShovelItem();
     // hoe
     Item getHoeItem();
+    // axe
+    Item getAxeItem();
 }

@@ -84,6 +84,24 @@ item.silver.hoe.name=Silver Hoe
 item.steel.hoe.name=Steel Hoe
 item.tin.hoe.name=Tin Hoe
 
+item.nether_quartz.axe.name=Quartz Axe
+item.ruby.axe.name=Ruby Axe
+item.sapphire.axe.name=Sapphire Axe
+item.green_sapphire.axe.name=Green Sapphire Axe
+
+item.alum.axe.name=Alum Axe
+item.bronze.axe.name=Bronze Axe
+item.constantan.axe.name=Constantan Axe
+item.copper.axe.name=Copper Axe
+item.electrum.axe.name=Electrum Axe
+item.invar.axe.name=Invar Axe
+item.lead.axe.name=Lead Axe
+item.nickel.axe.name=Nickel Axe
+item.platinum.axe.name=Platinum Axe
+item.silver.axe.name=Silver Axe
+item.steel.axe.name=Steel Axe
+item.tin.axe.name=Tin Axe
+
 item.nether_quartz.sword.name=Quartz Sword
 item.ruby.sword.name=Ruby Sword
 item.sapphire.sword.name=Sapphire Sword

@@ -16,54 +16,26 @@ public class Tools {
     public static void init() {
         initHammers();
         initExcavators();
-        initPickaxes();
-        initShovels();
-        initSwords();
-        initHoes();
+        initTools();
     }
-
-    public static void initSwords() {
-        for (Materials material : VALUES) {
-            for (String itemID : material.getIngredients().getItems()) {
-                if (shouldAdd(itemID)) {
-                    if (material.getToolType().hasSword()) {
-                        addSword(material.getSwordItem(), itemID);
-                    }
-                }
-            }
-        }
-    }
-
-    public static void initHoes() {
-        for (Materials material : VALUES) {
-            for (String itemID : material.getIngredients().getItems()) {
-                if (shouldAdd(itemID)) {
-                    if (material.getToolType().hasHoe()) {
-                        addHoe(material.getHoeItem(), itemID);
-                    }
-                }
-            }
-        }
-    }
-
-    public static void initShovels() {
-        for (Materials material : VALUES) {
-            for (String itemID : material.getIngredients().getItems()) {
-                if (shouldAdd(itemID)) {
-                    if (material.getToolType().hasShovel()) {
-                        addShovel(material.getShovelItem(), itemID);
-                    }
-                }
-            }
-        }
-    }
-
-    public static void initPickaxes() {
+    public static void initTools() {
         for (Materials material : VALUES) {
             for (String itemID : material.getIngredients().getItems()) {
                 if (shouldAdd(itemID)) {
                     if (material.getToolType().hasPickaxe()) {
                         addPick(material.getPickaxeItem(), itemID);
+                    }
+                    if (material.getToolType().hasShovel()) {
+                        addShovel(material.getShovelItem(), itemID);
+                    }
+                    if (material.getToolType().hasSword()) {
+                        addSword(material.getSwordItem(), itemID);
+                    }
+                    if (material.getToolType().hasHoe()) {
+                        addHoe(material.getHoeItem(), itemID);
+                    }
+                    if (material.getToolType().hasAxe()) {
+                        addAxe(material.getAxeItem(), itemID);
                     }
                 }
             }
@@ -156,6 +128,18 @@ public class Tools {
     public static void addSword(Item pick, Object material) {
         GameRegistry.addRecipe(new ShapedOreRecipe(pick,
                 " X ", " X ", " P ",
+                'X', material,
+                'P', Item.stick));
+    }
+
+    public static void addAxe(Item pick, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(pick,
+                "XX ", "XP ", " P ",
+                'X', material,
+                'P', Item.stick));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(pick,
+                " XX", " PX", " P ",
                 'X', material,
                 'P', Item.stick));
     }
