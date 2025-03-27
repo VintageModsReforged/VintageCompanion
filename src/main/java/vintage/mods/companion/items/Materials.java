@@ -3,10 +3,7 @@ package vintage.mods.companion.items;
 import net.minecraft.item.Item;
 import vintage.mods.companion.CompanionConfig;
 import net.minecraft.item.EnumToolMaterial;
-import vintage.mods.companion.items.base.ItemBaseExcavator;
-import vintage.mods.companion.items.base.ItemBaseHammer;
-import vintage.mods.companion.items.base.ItemBasePickaxe;
-import vintage.mods.companion.items.base.ItemBaseSword;
+import vintage.mods.companion.items.base.*;
 import vintage.mods.companion.items.compat.exu.ItemUnstableExcavator;
 import vintage.mods.companion.items.compat.exu.ItemUnstableHammer;
 import vintage.mods.companion.items.compat.twilightforest.ItemIronWoodExcavator;
@@ -20,39 +17,41 @@ import java.util.Locale;
 
 public enum Materials implements IToolsProvider {
     // vanilla
-    WOOD(ToolMaterials.WOOD, ToolType.EXCAVATOR_HAMMER),
-    STONE(ToolMaterials.STONE, ToolType.EXCAVATOR_HAMMER),
-    GOLD(ToolMaterials.GOLD, ToolType.EXCAVATOR_HAMMER),
-    IRON(ToolMaterials.IRON, ToolType.EXCAVATOR_HAMMER),
-    DIAMOND(ToolMaterials.DIAMOND, ToolType.EXCAVATOR_HAMMER),
+    WOOD(ToolMaterials.WOOD, new Ingredient("plankWood"), ToolType.EXCAVATOR_HAMMER),
+    STONE(ToolMaterials.STONE, new Ingredient("cobblestone"), ToolType.EXCAVATOR_HAMMER),
+    GOLD(ToolMaterials.GOLD, new Ingredient("ingotGold"), ToolType.EXCAVATOR_HAMMER),
+    IRON(ToolMaterials.IRON, new Ingredient("ingotIron"), ToolType.EXCAVATOR_HAMMER),
+    DIAMOND(ToolMaterials.DIAMOND, new Ingredient("gemDiamond"), ToolType.EXCAVATOR_HAMMER),
     // Applied Energistics
-    NETHER_QUARTZ(ToolMaterials.NETHER_QUARTZ, ToolType.ALL_TOOLS),
-    CERTUS_QUARTZ(ToolMaterials.CERTUS_QUARTZ, ToolType.EXCAVATOR_HAMMER),
+    NETHER_QUARTZ(ToolMaterials.NETHER_QUARTZ, new Ingredient("crystalNetherQuartz"), ToolType.ALL_TOOLS),
+    CERTUS_QUARTZ(ToolMaterials.CERTUS_QUARTZ, new Ingredient("crystalCertusQuartz"), ToolType.EXCAVATOR_HAMMER),
     // Gems: Ruby, Sapphire, Green Sapphire
-    RUBY(ToolMaterials.GEM, ToolType.ALL_TOOLS),
-    SAPPHIRE(ToolMaterials.GEM, ToolType.ALL_TOOLS),
-    GREEN_SAPPHIRE(ToolMaterials.GEM, ToolType.ALL_TOOLS),
+    RUBY(ToolMaterials.GEM, new Ingredient("gemRuby"), ToolType.ALL_TOOLS),
+    SAPPHIRE(ToolMaterials.GEM, new Ingredient("gemSapphire"), ToolType.ALL_TOOLS),
+    GREEN_SAPPHIRE(ToolMaterials.GEM, new Ingredient("gemGreenSapphire"), ToolType.ALL_TOOLS),
     // Base Metals
-    ALUM(ToolMaterials.ALUM, ToolType.ALL_TOOLS),
-    BRONZE(ToolMaterials.BRONZE, ToolType.ALL_TOOLS),
-    CONSTANTAN(ToolMaterials.CONSTANTAN, ToolType.ALL_TOOLS),
-    COPPER(ToolMaterials.COPPER, ToolType.ALL_TOOLS),
-    ELECTRUM(ToolMaterials.ELECTRUM, ToolType.ALL_TOOLS),
-    INVAR(ToolMaterials.INVAR, ToolType.ALL_TOOLS),
-    LEAD(ToolMaterials.LEAD, ToolType.ALL_TOOLS),
-    NICKEL(ToolMaterials.NICKEL, ToolType.ALL_TOOLS),
-    PLATINUM(ToolMaterials.PLATINUM, ToolType.ALL_TOOLS),
-    SILVER(ToolMaterials.SILVER, ToolType.ALL_TOOLS),
-    STEEL(ToolMaterials.STEEL, ToolType.ALL_TOOLS),
-    TIN(ToolMaterials.TIN, ToolType.ALL_TOOLS),
+    ALUM(ToolMaterials.ALUM, new Ingredient("ingotAluminium", "ingotAluminum"), ToolType.ALL_TOOLS),
+    BRONZE(ToolMaterials.BRONZE, new Ingredient("ingotBronze"), ToolType.ALL_TOOLS),
+    CONSTANTAN(ToolMaterials.CONSTANTAN, new Ingredient("ingotCupronickel", "ingotConstantan"), ToolType.ALL_TOOLS),
+    COPPER(ToolMaterials.COPPER, new Ingredient("ingotCopper"), ToolType.ALL_TOOLS),
+    ELECTRUM(ToolMaterials.ELECTRUM, new Ingredient("ingotElectrum"), ToolType.ALL_TOOLS),
+    INVAR(ToolMaterials.INVAR, new Ingredient("ingotInvar"), ToolType.ALL_TOOLS),
+    LEAD(ToolMaterials.LEAD, new Ingredient("ingotLead"), ToolType.ALL_TOOLS),
+    NICKEL(ToolMaterials.NICKEL, new Ingredient("ingotNickel"), ToolType.ALL_TOOLS),
+    PLATINUM(ToolMaterials.PLATINUM, new Ingredient("ingotPlatinum"), ToolType.ALL_TOOLS),
+    SILVER(ToolMaterials.SILVER, new Ingredient("ingotSilver"), ToolType.ALL_TOOLS),
+    STEEL(ToolMaterials.STEEL, new Ingredient("ingotSteel"), ToolType.ALL_TOOLS),
+    TIN(ToolMaterials.TIN, new Ingredient("ingotTin"), ToolType.ALL_TOOLS),
     // Compat: Mods
-    THAUMIUM(ToolMaterials.THAUMIUM, ToolType.EXCAVATOR_HAMMER),
-    STEELEAF(ToolMaterials.STEELEAF, ToolType.EXCAVATOR_HAMMER),
-    IRONWOOD(ToolMaterials.IRONWOOD, ToolType.EXCAVATOR_HAMMER),
-    FIERY(ToolMaterials.FIERY, ToolType.EXCAVATOR_HAMMER),
-    UNSTABLE(ToolMaterials.UNSTABLE, ToolType.EXCAVATOR_HAMMER);
+    THAUMIUM(ToolMaterials.THAUMIUM, new Ingredient("ingotThaumium"), ToolType.EXCAVATOR_HAMMER),
+    STEELEAF(ToolMaterials.STEELEAF, new Ingredient("ingotSteeleaf"), ToolType.EXCAVATOR_HAMMER),
+    IRONWOOD(ToolMaterials.IRONWOOD, new Ingredient("ingotIronwood"), ToolType.EXCAVATOR_HAMMER),
+    FIERY(ToolMaterials.FIERY, new Ingredient("ingotFiery"), ToolType.EXCAVATOR_HAMMER),
+    UNSTABLE(ToolMaterials.UNSTABLE, new Ingredient("ingotUnstable"), ToolType.EXCAVATOR_HAMMER);
 
     private static int totalToolCount = 0;
+    private final ToolType toolType;
+    private final Ingredient ingredients;
 
     private final String NAME;
     private final EnumToolMaterial MATERIAL;
@@ -62,10 +61,13 @@ public enum Materials implements IToolsProvider {
     private final LazyEntry<Item> excavatorItem;
     private final LazyEntry<Item> pickaxeItem;
     private final LazyEntry<Item> swordItem;
+    private final LazyEntry<Item> shovelItem;
 
-    Materials(final EnumToolMaterial material, final ToolType builder) {
+    Materials(final EnumToolMaterial material, Ingredient ingredients, final ToolType builder) {
         this.NAME = name().toLowerCase(Locale.ROOT);
         this.MATERIAL = material;
+        this.ingredients = ingredients;
+        this.toolType = builder;
         this.hammerItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
             @Override
             public Item get() {
@@ -131,10 +133,29 @@ public enum Materials implements IToolsProvider {
                 return null;
             }
         });
+
+        this.shovelItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                if (builder.hasShovel()) {
+                    int shovelId = getToolId(totalToolCount++);
+                    return new ItemBaseShovel(shovelId, material, getName());
+                }
+                return null;
+            }
+        });
     }
 
     private static int getToolId(int totalToolsAdded) {
         return CompanionConfig.toolsIdStartIndex + totalToolsAdded;
+    }
+
+    public ToolType getToolType() {
+        return toolType;
+    }
+
+    public Ingredient getIngredients() {
+        return this.ingredients;
     }
 
     public EnumToolMaterial getToolMaterial() {
@@ -170,21 +191,28 @@ public enum Materials implements IToolsProvider {
         return swordItem.get();
     }
 
+    @Override
+    public Item getShovelItem() {
+        return shovelItem.get();
+    }
+
     public static class ToolType {
         // add these if needed
         private final boolean excavator;
         private final boolean hammer;
         private final boolean pickaxe;
         private final boolean sword;
+        private final boolean shovel;
 
         private static final ToolType EXCAVATOR_HAMMER = new ToolType.Builder().addExcavator().addHammer().build();
-        private static final ToolType ALL_TOOLS = new ToolType.Builder().addExcavator().addHammer().addPickaxe().addSword().build();
+        private static final ToolType ALL_TOOLS = new ToolType.Builder().addExcavator().addHammer().addPickaxe().addSword().addShovel().build();
 
         private ToolType(Builder builder) {
             this.excavator = builder.excavator;
             this.hammer = builder.hammer;
             this.pickaxe = builder.pickaxe;
             this.sword = builder.sword;
+            this.shovel = builder.shovel;
         }
 
         public boolean hasExcavator() {
@@ -203,17 +231,23 @@ public enum Materials implements IToolsProvider {
             return sword;
         }
 
+        public boolean hasShovel() {
+            return shovel;
+        }
+
         public static class Builder {
             private boolean excavator;
             private boolean hammer;
             private boolean pickaxe;
             private boolean sword;
+            private boolean shovel;
 
             public Builder() {
                 this.excavator = false;
                 this.hammer = false;
                 this.pickaxe = false;
                 this.sword = false;
+                this.shovel = false;
             }
 
             public Builder addExcavator() {
@@ -236,9 +270,26 @@ public enum Materials implements IToolsProvider {
                 return this;
             }
 
+            public Builder addShovel() {
+                this.shovel = true;
+                return this;
+            }
+
             public ToolType build() {
                 return new ToolType(this);
             }
+        }
+    }
+
+    public static class Ingredient {
+        public String[] items;
+
+        public Ingredient(String... items) {
+            this.items = items;
+        }
+
+        public String[] getItems() {
+            return this.items;
         }
     }
 }

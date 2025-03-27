@@ -5,6 +5,7 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import net.minecraft.block.Block;
 import vintage.mods.companion.items.Materials;
 import vintage.mods.companion.items.Tools;
 import vintage.mods.companion.items.compat.ItemRefs;
@@ -54,6 +55,11 @@ public class VintageCompanion implements ILangProvider {
 
     @Mod.Init
     public void init(FMLInitializationEvent e) {
+        OreDictionary.registerOre("cobblestone", Block.cobblestone);
+        OreDictionary.registerOre("ingotGold", Item.ingotGold);
+        OreDictionary.registerOre("ingotIron", Item.ingotIron);
+        OreDictionary.registerOre("gemDiamond", Item.diamond);
+        OreDictionary.registerOre("crystalNetherQuartz", Item.netherQuartz);
         if (Loader.isModLoaded("ExtraUtilities")) {
             ItemStack unstableStack = ItemRefs.getUnstableStack();
             if (unstableStack != null) {
