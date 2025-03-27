@@ -13,11 +13,11 @@ import vintage.mods.companion.VintageCompanion;
 
 import java.util.Locale;
 
-public class ItemBasicMiningTool extends ItemTool {
+public class ItemBaseMiningTool extends ItemTool {
 
     public String name;
 
-    public ItemBasicMiningTool(int id, int attack, EnumToolMaterial material, String name) {
+    public ItemBaseMiningTool(int id, int attack, EnumToolMaterial material, String name) {
         super(id, attack, material, new Block[0]);
         this.name = name;
         this.setMaxStackSize(1);

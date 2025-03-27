@@ -13,7 +13,7 @@ import vintage.mods.companion.Refs;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ItemBasePickaxe extends ItemBasicMiningTool {
+public class ItemBasePickaxe extends ItemBaseMiningTool {
 
     public Set<Material> mineableBlockMaterials = new HashSet<Material>();
 

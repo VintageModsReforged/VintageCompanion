@@ -13,7 +13,7 @@ import net.minecraftforge.common.MinecraftForge;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ItemBaseHammer extends ItemToolAOEBase {
+public class ItemBaseHammer extends ItemBaseAOETool {
 
     public Set<Material> mineableBlockMaterials = new HashSet<Material>();
 

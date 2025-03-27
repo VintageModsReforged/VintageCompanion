@@ -10,9 +10,9 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemToolAOEBase extends ItemBasicMiningTool {
+public class ItemBaseAOETool extends ItemBaseMiningTool {
 
-    public ItemToolAOEBase(int id, EnumToolMaterial material, String name) {
+    public ItemBaseAOETool(int id, EnumToolMaterial material, String name) {
         super(id, 0, material, name);
     }
 
