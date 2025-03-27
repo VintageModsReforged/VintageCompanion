@@ -1,0 +1,67 @@
+item.wood.hammer.name=Wooden Hammer
+item.stone.hammer.name=Stone Hammer
+item.gold.hammer.name=Golden Hammer
+item.iron.hammer.name=Iron Hammer
+item.diamond.hammer.name=Diamond Hammer
+item.nether_quartz.hammer.name=Quartz Hammer
+item.certus_quartz.hammer.name=Certus Quartz Hammer
+item.ruby.hammer.name=Ruby Hammer
+item.sapphire.hammer.name=Sapphire Hammer
+item.green_sapphire.hammer.name=Green Sapphire Hammer
+
+item.alum.hammer.name=Alum Hammer
+item.bronze.hammer.name=Bronze Hammer
+item.constantan.hammer.name=Constantan Hammer
+item.copper.hammer.name=Copper Hammer
+item.electrum.hammer.name=Electrum Hammer
+item.invar.hammer.name=Invar Hammer
+item.lead.hammer.name=Lead Hammer
+item.nickel.hammer.name=Nickel Hammer
+item.platinum.hammer.name=Platinum Hammer
+item.silver.hammer.name=Silver Hammer
+item.steel.hammer.name=Steel Hammer
+item.tin.hammer.name=Tin Hammer
+
+item.thaumium.hammer.name=Thaumium Hammer
+item.elemental.hammer.name=Hammer of the Core
+item.steeleaf.hammer.name=Steeleaf Hammer
+item.ironwood.hammer.name=Ironwood Hammer
+item.fiery.hammer.name=Fiery Hammer
+item.knightly.hammer.name=Knightly Hammer
+item.unstable.hammer.name=Unstable Hammer
+
+item.wood.excavator.name=Wooden Excavator
+item.stone.excavator.name=Stone Excavator
+item.gold.excavator.name=Golden Excavator
+item.iron.excavator.name=Iron Excavator
+item.diamond.excavator.name=Diamond Excavator
+item.nether_quartz.excavator.name=Quartz Excavator
+item.certus_quartz.excavator.name=Certus Quartz Excavator
+item.ruby.excavator.name=Ruby Excavator
+item.sapphire.excavator.name=Sapphire Excavator
+item.green_sapphire.excavator.name=Green Sapphire Excavator
+
+item.alum.excavator.name=Alum Excavator
+item.bronze.excavator.name=Bronze Excavator
+item.constantan.excavator.name=Constantan Excavator
+item.copper.excavator.name=Copper Excavator
+item.electrum.excavator.name=Electrum Excavator
+item.invar.excavator.name=Invar Excavator
+item.lead.excavator.name=Lead Excavator
+item.nickel.excavator.name=Nickel Excavator
+item.platinum.excavator.name=Platinum Excavator
+item.silver.excavator.name=Silver Excavator
+item.steel.excavator.name=Steel Excavator
+item.tin.excavator.name=Tin Excavator
+
+item.thaumium.excavator.name=Thaumium Excavator
+item.elemental.excavator.name=Excavator of the Earthmover
+item.steeleaf.excavator.name=Steeleaf Excavator
+item.ironwood.excavator.name=Ironwood Excavator
+item.fiery.excavator.name=Fiery Excavator
+item.knightly.excavator.name=Knightly Excavator
+item.unstable.excavator.name=Unstable Excavator
+
+tooltips.info.use_warning=DON'T USE THIS! IT MIGHT CRASH YOUR GAME!
+tooltips.info.warning.craft=- Do not craft unless ready -
+tooltips.info.auto_smelting=Auto-Smelting!
