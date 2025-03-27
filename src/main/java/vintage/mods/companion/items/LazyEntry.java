@@ -1,5 +1,6 @@
 package vintage.mods.companion.items;
 
+//TODO: Move to VintageCore
 public class LazyEntry<T> {
 
     private final Supplier<T> factory;
