@@ -62,6 +62,7 @@ public enum Materials implements IToolsProvider {
     private final LazyEntry<Item> pickaxeItem;
     private final LazyEntry<Item> swordItem;
     private final LazyEntry<Item> shovelItem;
+    private final LazyEntry<Item> hoeItem;
 
     Materials(final EnumToolMaterial material, Ingredient ingredients, final ToolType builder) {
         this.NAME = name().toLowerCase(Locale.ROOT);
@@ -144,6 +145,17 @@ public enum Materials implements IToolsProvider {
                 return null;
             }
         });
+
+        this.hoeItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                if (builder.hasHoe()) {
+                    int hoeId = getToolId(totalToolCount++);
+                    return new ItemBaseHoe(hoeId, material, getName());
+                }
+                return null;
+            }
+        });
     }
 
     private static int getToolId(int totalToolsAdded) {
@@ -196,6 +208,10 @@ public enum Materials implements IToolsProvider {
         return shovelItem.get();
     }
 
+    public Item getHoeItem() {
+        return hoeItem.get();
+    }
+
     public static class ToolType {
         // add these if needed
         private final boolean excavator;
@@ -203,9 +219,10 @@ public enum Materials implements IToolsProvider {
         private final boolean pickaxe;
         private final boolean sword;
         private final boolean shovel;
+        private final boolean hoe;
 
         private static final ToolType EXCAVATOR_HAMMER = new ToolType.Builder().addExcavator().addHammer().build();
-        private static final ToolType ALL_TOOLS = new ToolType.Builder().addExcavator().addHammer().addPickaxe().addSword().addShovel().build();
+        private static final ToolType ALL_TOOLS = new ToolType.Builder().addExcavator().addHammer().addPickaxe().addSword().addShovel().addHoe().build();
 
         private ToolType(Builder builder) {
             this.excavator = builder.excavator;
@@ -213,6 +230,7 @@ public enum Materials implements IToolsProvider {
             this.pickaxe = builder.pickaxe;
             this.sword = builder.sword;
             this.shovel = builder.shovel;
+            this.hoe = builder.hoe;
         }
 
         public boolean hasExcavator() {
@@ -235,12 +253,17 @@ public enum Materials implements IToolsProvider {
             return shovel;
         }
 
+        public boolean hasHoe() {
+            return hoe;
+        }
+
         public static class Builder {
             private boolean excavator;
             private boolean hammer;
             private boolean pickaxe;
             private boolean sword;
             private boolean shovel;
+            private boolean hoe;
 
             public Builder() {
                 this.excavator = false;
@@ -248,6 +271,7 @@ public enum Materials implements IToolsProvider {
                 this.pickaxe = false;
                 this.sword = false;
                 this.shovel = false;
+                this.hoe = false;
             }
 
             public Builder addExcavator() {
@@ -272,6 +296,11 @@ public enum Materials implements IToolsProvider {
 
             public Builder addShovel() {
                 this.shovel = true;
+                return this;
+            }
+
+            public Builder addHoe() {
+                this.hoe = true;
                 return this;
             }
 

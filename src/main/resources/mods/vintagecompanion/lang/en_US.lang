@@ -66,6 +66,24 @@ item.silver.shovel.name=Silver Shovel
 item.steel.shovel.name=Steel Shovel
 item.tin.shovel.name=Tin Shovel
 
+item.nether_quartz.hoe.name=Quartz Hoe
+item.ruby.hoe.name=Ruby Hoe
+item.sapphire.hoe.name=Sapphire Hoe
+item.green_sapphire.hoe.name=Green Sapphire Hoe
+
+item.alum.hoe.name=Alum Hoe
+item.bronze.hoe.name=Bronze Hoe
+item.constantan.hoe.name=Constantan Hoe
+item.copper.hoe.name=Copper Hoe
+item.electrum.hoe.name=Electrum Hoe
+item.invar.hoe.name=Invar Hoe
+item.lead.hoe.name=Lead Hoe
+item.nickel.hoe.name=Nickel Hoe
+item.platinum.hoe.name=Platinum Hoe
+item.silver.hoe.name=Silver Hoe
+item.steel.hoe.name=Steel Hoe
+item.tin.hoe.name=Tin Hoe
+
 item.nether_quartz.sword.name=Quartz Sword
 item.ruby.sword.name=Ruby Sword
 item.sapphire.sword.name=Sapphire Sword

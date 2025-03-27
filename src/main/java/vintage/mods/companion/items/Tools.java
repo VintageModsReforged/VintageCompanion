@@ -19,6 +19,7 @@ public class Tools {
         initPickaxes();
         initShovels();
         initSwords();
+        initHoes();
     }
 
     public static void initSwords() {
@@ -27,6 +28,18 @@ public class Tools {
                 if (shouldAdd(itemID)) {
                     if (material.getToolType().hasSword()) {
                         addSword(material.getSwordItem(), itemID);
+                    }
+                }
+            }
+        }
+    }
+
+    public static void initHoes() {
+        for (Materials material : VALUES) {
+            for (String itemID : material.getIngredients().getItems()) {
+                if (shouldAdd(itemID)) {
+                    if (material.getToolType().hasHoe()) {
+                        addHoe(material.getHoeItem(), itemID);
                     }
                 }
             }
@@ -143,6 +156,18 @@ public class Tools {
     public static void addSword(Item pick, Object material) {
         GameRegistry.addRecipe(new ShapedOreRecipe(pick,
                 " X ", " X ", " P ",
+                'X', material,
+                'P', Item.stick));
+    }
+
+    public static void addHoe(Item pick, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(pick,
+                "XX ", " P ", " P ",
+                'X', material,
+                'P', Item.stick));
+
+        GameRegistry.addRecipe(new ShapedOreRecipe(pick,
+                " XX", " P ", " P ",
                 'X', material,
                 'P', Item.stick));
     }
