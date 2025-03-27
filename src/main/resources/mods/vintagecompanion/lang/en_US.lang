@@ -48,6 +48,24 @@ item.silver.pickaxe.name=Silver Pickaxe
 item.steel.pickaxe.name=Steel Pickaxe
 item.tin.pickaxe.name=Tin Pickaxe
 
+item.nether_quartz.sword.name=Quartz Sword
+item.ruby.sword.name=Ruby Sword
+item.sapphire.sword.name=Sapphire Sword
+item.green_sapphire.sword.name=Green Sapphire Sword
+
+item.alum.sword.name=Alum Sword
+item.bronze.sword.name=Bronze Sword
+item.constantan.sword.name=Constantan Sword
+item.copper.sword.name=Copper Sword
+item.electrum.sword.name=Electrum Sword
+item.invar.sword.name=Invar Sword
+item.lead.sword.name=Lead Sword
+item.nickel.sword.name=Nickel Sword
+item.platinum.sword.name=Platinum Sword
+item.silver.sword.name=Silver Sword
+item.steel.sword.name=Steel Sword
+item.tin.sword.name=Tin Sword
+
 item.wood.excavator.name=Wooden Excavator
 item.stone.excavator.name=Stone Excavator
 item.gold.excavator.name=Golden Excavator

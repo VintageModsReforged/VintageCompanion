@@ -17,6 +17,74 @@ public class Tools {
         initHammers();
         initExcavators();
         initPickaxes();
+        initSwords();
+    }
+
+    public static void initSwords() {
+        if (shouldAdd("ingotAluminium") || shouldAdd("ingotAluminum")) {
+            Item alum_sword = ALUM.getSwordItem();
+            if (shouldAdd("ingotAluminium")) {
+                addSword(alum_sword, "ingotAluminium");
+            }
+            if (shouldAdd("ingotAluminum")) {
+                addSword(alum_sword, "ingotAluminum");
+            }
+        }
+        if (shouldAdd("ingotBronze")) {
+            addSword(BRONZE.getSwordItem(), "ingotBronze");
+        }
+        if (shouldAdd("ingotCupronickel") || shouldAdd("ingotConstantan")) {
+            Item constantan_sword = CONSTANTAN.getSwordItem();
+            if (shouldAdd("ingotCupronickel")) {
+                addSword(constantan_sword, "ingotCupronickel");
+            }
+            if (shouldAdd("ingotConstantan")) {
+                addSword(constantan_sword, "ingotConstantan");
+            }
+        }
+        if (shouldAdd("ingotCopper")) {
+            addSword(COPPER.getSwordItem(), "ingotCopper");
+        }
+        if (shouldAdd("ingotElectrum")) {
+            addSword(ELECTRUM.getSwordItem(), "ingotElectrum");
+        }
+        if (shouldAdd("ingotInvar")) {
+            addSword(INVAR.getSwordItem(), "ingotInvar");
+        }
+        if (shouldAdd("ingotLead")) {
+            addSword(LEAD.getSwordItem(), "ingotLead");
+        }
+        if (shouldAdd("ingotNickel")) {
+            addSword(NICKEL.getSwordItem(), "ingotNickel");
+        }
+        if (shouldAdd("ingotPlatinum")) {
+            addSword(PLATINUM.getSwordItem(), "ingotPlatinum");
+        }
+        if (shouldAdd("ingotSilver")) {
+            addSword(SILVER.getSwordItem(), "ingotSilver");
+        }
+        if (shouldAdd("ingotSteel")) {
+            addSword(STEEL.getSwordItem(), "ingotSteel");
+        }
+        if (shouldAdd("ingotTin")) {
+            addSword(TIN.getSwordItem(), "ingotTin");
+        }
+
+        addSword(NETHER_QUARTZ.getSwordItem(), Item.netherQuartz);
+
+        if (shouldAdd("crystalCertusQuartz")) {
+            addSword(CERTUS_QUARTZ.getSwordItem(), "crystalCertusQuartz");
+        }
+
+        if (shouldAdd("gemRuby")) {
+            addSword(RUBY.getSwordItem(), "gemRuby");
+        }
+        if (shouldAdd("gemSapphire")) {
+            addSword(SAPPHIRE.getSwordItem(), "gemSapphire");
+        }
+        if (shouldAdd("gemGreenSapphire")) {
+            addSword(GREEN_SAPPHIRE.getSwordItem(), "gemGreenSapphire");
+        }
     }
 
     public static void initPickaxes() {
@@ -295,6 +363,13 @@ public class Tools {
                         'P', Block.obsidian));
             }
         }
+    }
+
+    public static void addSword(Item pick, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(pick,
+                " X ", " X ", " P ",
+                'X', material,
+                'P', Item.stick));
     }
 
     public static void addPick(Item pick, Object material) {

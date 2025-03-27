@@ -11,4 +11,6 @@ public interface IToolsProvider {
     Item getExcavatorItem();
     // pickaxe
     Item getPickaxeItem();
+    // sword
+    Item getSwordItem();
 }

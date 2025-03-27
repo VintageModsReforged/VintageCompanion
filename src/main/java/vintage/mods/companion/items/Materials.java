@@ -6,6 +6,7 @@ import net.minecraft.item.EnumToolMaterial;
 import vintage.mods.companion.items.base.ItemBaseExcavator;
 import vintage.mods.companion.items.base.ItemBaseHammer;
 import vintage.mods.companion.items.base.ItemBasePickaxe;
+import vintage.mods.companion.items.base.ItemBaseSword;
 import vintage.mods.companion.items.compat.exu.ItemUnstableExcavator;
 import vintage.mods.companion.items.compat.exu.ItemUnstableHammer;
 import vintage.mods.companion.items.compat.twilightforest.ItemIronWoodExcavator;
@@ -58,6 +59,7 @@ public enum Materials implements IToolsProvider {
     private final LazyEntry<Item> hammerItem;
     private final LazyEntry<Item> excavatorItem;
     private final LazyEntry<Item> pickaxeItem;
+    private final LazyEntry<Item> swordItem;
 
     Materials(final EnumToolMaterial material, final ToolType builder) {
         this.NAME = name().toLowerCase(Locale.ROOT);
@@ -113,6 +115,16 @@ public enum Materials implements IToolsProvider {
                 return null;
             }
         });
+
+        this.swordItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                if (builder.hasSword()) {
+                    return new ItemBaseSword(swordId(), material, getName());
+                }
+                return null;
+            }
+        });
     }
 
     public EnumToolMaterial getToolMaterial() {
@@ -135,6 +147,10 @@ public enum Materials implements IToolsProvider {
         return CompanionConfig.toolsIdStartIndex + (VALUES.length * 2) + ordinal();
     }
 
+    public int swordId() {
+        return CompanionConfig.toolsIdStartIndex + (VALUES.length * 3) + ordinal();
+    }
+
     @Override
     public String getName() {
         return this.NAME;
@@ -153,6 +169,11 @@ public enum Materials implements IToolsProvider {
     @Override
     public Item getPickaxeItem() {
         return pickaxeItem.get();
+    }
+
+    @Override
+    public Item getSwordItem() {
+        return swordItem.get();
     }
 
     public static class ToolType {
