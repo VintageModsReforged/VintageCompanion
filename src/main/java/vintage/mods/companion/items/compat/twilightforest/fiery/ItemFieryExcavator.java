@@ -20,8 +20,8 @@ import java.util.List;
 
 public class ItemFieryExcavator extends ItemBaseExcavator {
 
-    public ItemFieryExcavator() {
-        super(Materials.FIERY.excavatorId(), Materials.FIERY.getToolMaterial(), Materials.FIERY.getName());
+    public ItemFieryExcavator(int id) {
+        super(id, Materials.FIERY.getToolMaterial(), Materials.FIERY.getName());
     }
 
     @SuppressWarnings("all")

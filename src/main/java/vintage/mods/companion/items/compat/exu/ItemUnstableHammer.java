@@ -20,8 +20,8 @@ public class ItemUnstableHammer extends ItemBaseHammer implements IItemMultiTran
 
     private Icon[] icons;
 
-    public ItemUnstableHammer() {
-        super(Materials.UNSTABLE.hammerId(), Materials.UNSTABLE.getToolMaterial(), Materials.UNSTABLE.getName());
+    public ItemUnstableHammer(int id) {
+        super(id, Materials.UNSTABLE.getToolMaterial(), Materials.UNSTABLE.getName());
         this.setMaxDamage(-1);
     }
 

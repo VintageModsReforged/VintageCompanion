@@ -13,8 +13,8 @@ import java.util.List;
 
 public class ItemSteeleafHammer extends ItemBaseHammer {
 
-    public ItemSteeleafHammer() {
-        super(Materials.STEELEAF.hammerId(), Materials.STEELEAF.getToolMaterial(), Materials.STEELEAF.getName());
+    public ItemSteeleafHammer(int id) {
+        super(id, Materials.STEELEAF.getToolMaterial(), Materials.STEELEAF.getName());
     }
 
     @SuppressWarnings("all")

@@ -52,6 +52,8 @@ public enum Materials implements IToolsProvider {
     FIERY(ToolMaterials.FIERY, ToolType.EXCAVATOR_HAMMER),
     UNSTABLE(ToolMaterials.UNSTABLE, ToolType.EXCAVATOR_HAMMER);
 
+    private static int totalToolCount = 0;
+
     private final String NAME;
     private final EnumToolMaterial MATERIAL;
     public static final Materials[] VALUES = values();
@@ -68,17 +70,18 @@ public enum Materials implements IToolsProvider {
             @Override
             public Item get() {
                 if (builder.hasHammer()) {
+                    int hammerId = getToolId(totalToolCount++);
                     switch (getMaterial()) {
                         case UNSTABLE:
-                            return new ItemUnstableHammer();
+                            return new ItemUnstableHammer(hammerId);
                         case FIERY:
-                            return new ItemFieryHammer();
+                            return new ItemFieryHammer(hammerId);
                         case IRONWOOD:
-                            return new ItemIronWoodHammer();
+                            return new ItemIronWoodHammer(hammerId);
                         case STEELEAF:
-                            return new ItemSteeleafHammer();
+                            return new ItemSteeleafHammer(hammerId);
                         default:
-                            return new ItemBaseHammer(hammerId(), material, getName());
+                            return new ItemBaseHammer(hammerId, material, getName());
                     }
                 }
                 return null;
@@ -89,17 +92,18 @@ public enum Materials implements IToolsProvider {
             @Override
             public Item get() {
                 if (builder.hasExcavator()) {
+                    int excavatorId = getToolId(totalToolCount++);
                     switch (getMaterial()) {
                         case UNSTABLE:
-                            return new ItemUnstableExcavator();
+                            return new ItemUnstableExcavator(excavatorId);
                         case FIERY:
-                            return new ItemFieryExcavator();
+                            return new ItemFieryExcavator(excavatorId);
                         case IRONWOOD:
-                            return new ItemIronWoodExcavator();
+                            return new ItemIronWoodExcavator(excavatorId);
                         case STEELEAF:
-                            return new ItemSteeleafExcavator();
+                            return new ItemSteeleafExcavator(excavatorId);
                         default:
-                            return new ItemBaseExcavator(excavatorId(), material, getName());
+                            return new ItemBaseExcavator(excavatorId, material, getName());
                     }
                 }
                 return null;
@@ -110,7 +114,8 @@ public enum Materials implements IToolsProvider {
             @Override
             public Item get() {
                 if (builder.hasPickaxe()) {
-                    return new ItemBasePickaxe(pickaxeId(), material, getName());
+                    int pickaxeId = getToolId(totalToolCount++);
+                    return new ItemBasePickaxe(pickaxeId, material, getName());
                 }
                 return null;
             }
@@ -120,11 +125,16 @@ public enum Materials implements IToolsProvider {
             @Override
             public Item get() {
                 if (builder.hasSword()) {
-                    return new ItemBaseSword(swordId(), material, getName());
+                    int swordId = getToolId(totalToolCount++);
+                    return new ItemBaseSword(swordId, material, getName());
                 }
                 return null;
             }
         });
+    }
+
+    private static int getToolId(int totalToolsAdded) {
+        return CompanionConfig.toolsIdStartIndex + totalToolsAdded;
     }
 
     public EnumToolMaterial getToolMaterial() {
@@ -133,22 +143,6 @@ public enum Materials implements IToolsProvider {
 
     Materials getMaterial() {
         return this;
-    }
-
-    public int hammerId() {
-        return CompanionConfig.toolsIdStartIndex + ordinal();
-    }
-
-    public int excavatorId() {
-        return CompanionConfig.toolsIdStartIndex + VALUES.length + ordinal();
-    }
-
-    public int pickaxeId() {
-        return CompanionConfig.toolsIdStartIndex + (VALUES.length * 2) + ordinal();
-    }
-
-    public int swordId() {
-        return CompanionConfig.toolsIdStartIndex + (VALUES.length * 3) + ordinal();
     }
 
     @Override

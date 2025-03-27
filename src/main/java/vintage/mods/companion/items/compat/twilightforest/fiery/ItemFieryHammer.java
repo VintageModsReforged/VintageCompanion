@@ -20,8 +20,8 @@ import java.util.List;
 
 public class ItemFieryHammer extends ItemBaseHammer {
 
-    public ItemFieryHammer() {
-        super(Materials.FIERY.hammerId(), Materials.FIERY.getToolMaterial(), Materials.FIERY.getName());
+    public ItemFieryHammer(int id) {
+        super(id, Materials.FIERY.getToolMaterial(), Materials.FIERY.getName());
     }
 
     @SuppressWarnings("all")
