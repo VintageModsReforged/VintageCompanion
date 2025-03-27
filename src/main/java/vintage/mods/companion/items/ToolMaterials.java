@@ -20,12 +20,10 @@ public class ToolMaterials {
     public static final EnumToolMaterial UNSTABLE = EnumToolMaterial.EMERALD;
     // Thaumcraft
     public static final EnumToolMaterial THAUMIUM = EnumHelper.addToolMaterial("thaumium", 3, 400, 7F, 2, 22);
-//    public static final EnumToolMaterial ELEMENTAL = EnumHelper.addToolMaterial("elemental", 3, 1500, 10.0F, 3, 18);
     // Twilight Forest
     public static final EnumToolMaterial STEELEAF = EnumHelper.addToolMaterial("steeleaf", 3, 131, 8F, 3, 9);
     public static final EnumToolMaterial IRONWOOD = EnumHelper.addToolMaterial("ironwood", 2, 512, 6.5F, 2, 25);
     public static final EnumToolMaterial FIERY = EnumHelper.addToolMaterial("fiery", 4, 1024, 9F, 4, 10);
-//    public static final EnumToolMaterial KNIGHTLY = EnumHelper.addToolMaterial("knight", 3, 512, 8F, 3, 8);
     // Base Metals
     public static final EnumToolMaterial ALUM = EnumHelper.addToolMaterial("alum", 1, 225, 10F, 1, 14);
     public static final EnumToolMaterial BRONZE = EnumHelper.addToolMaterial("bronze", 2, 325, 6.0F, 2, 10);

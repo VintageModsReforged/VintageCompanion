@@ -5,6 +5,7 @@ import vintage.mods.companion.CompanionConfig;
 import net.minecraft.item.EnumToolMaterial;
 import vintage.mods.companion.items.base.ItemBaseExcavator;
 import vintage.mods.companion.items.base.ItemBaseHammer;
+import vintage.mods.companion.items.base.ItemBasePickaxe;
 import vintage.mods.companion.items.compat.exu.ItemUnstableExcavator;
 import vintage.mods.companion.items.compat.exu.ItemUnstableHammer;
 import vintage.mods.companion.items.compat.twilightforest.ItemIronWoodExcavator;
@@ -18,39 +19,37 @@ import java.util.Locale;
 
 public enum Materials implements IToolsProvider {
     // vanilla
-    WOOD(ToolMaterials.WOOD),
-    STONE(ToolMaterials.STONE),
-    GOLD(ToolMaterials.GOLD),
-    IRON(ToolMaterials.IRON),
-    DIAMOND(ToolMaterials.DIAMOND),
+    WOOD(ToolMaterials.WOOD, ToolType.EXCAVATOR_HAMMER),
+    STONE(ToolMaterials.STONE, ToolType.EXCAVATOR_HAMMER),
+    GOLD(ToolMaterials.GOLD, ToolType.EXCAVATOR_HAMMER),
+    IRON(ToolMaterials.IRON, ToolType.EXCAVATOR_HAMMER),
+    DIAMOND(ToolMaterials.DIAMOND, ToolType.EXCAVATOR_HAMMER),
     // Applied Energistics
-    NETHER_QUARTZ(ToolMaterials.NETHER_QUARTZ),
-    CERTUS_QUARTZ(ToolMaterials.CERTUS_QUARTZ),
+    NETHER_QUARTZ(ToolMaterials.NETHER_QUARTZ, ToolType.ALL_TOOLS),
+    CERTUS_QUARTZ(ToolMaterials.CERTUS_QUARTZ, ToolType.EXCAVATOR_HAMMER),
     // Gems: Ruby, Sapphire, Green Sapphire
-    RUBY(ToolMaterials.GEM),
-    SAPPHIRE(ToolMaterials.GEM),
-    GREEN_SAPPHIRE(ToolMaterials.GEM),
+    RUBY(ToolMaterials.GEM, ToolType.ALL_TOOLS),
+    SAPPHIRE(ToolMaterials.GEM, ToolType.ALL_TOOLS),
+    GREEN_SAPPHIRE(ToolMaterials.GEM, ToolType.ALL_TOOLS),
     // Base Metals
-    ALUM(ToolMaterials.ALUM),
-    BRONZE(ToolMaterials.BRONZE),
-    CONSTANTAN(ToolMaterials.CONSTANTAN),
-    COPPER(ToolMaterials.COPPER),
-    ELECTRUM(ToolMaterials.ELECTRUM),
-    INVAR(ToolMaterials.INVAR),
-    LEAD(ToolMaterials.LEAD),
-    NICKEL(ToolMaterials.NICKEL),
-    PLATINUM(ToolMaterials.PLATINUM),
-    SILVER(ToolMaterials.SILVER),
-    STEEL(ToolMaterials.STEEL),
-    TIN(ToolMaterials.TIN),
+    ALUM(ToolMaterials.ALUM, ToolType.ALL_TOOLS),
+    BRONZE(ToolMaterials.BRONZE, ToolType.ALL_TOOLS),
+    CONSTANTAN(ToolMaterials.CONSTANTAN, ToolType.ALL_TOOLS),
+    COPPER(ToolMaterials.COPPER, ToolType.ALL_TOOLS),
+    ELECTRUM(ToolMaterials.ELECTRUM, ToolType.ALL_TOOLS),
+    INVAR(ToolMaterials.INVAR, ToolType.ALL_TOOLS),
+    LEAD(ToolMaterials.LEAD, ToolType.ALL_TOOLS),
+    NICKEL(ToolMaterials.NICKEL, ToolType.ALL_TOOLS),
+    PLATINUM(ToolMaterials.PLATINUM, ToolType.ALL_TOOLS),
+    SILVER(ToolMaterials.SILVER, ToolType.ALL_TOOLS),
+    STEEL(ToolMaterials.STEEL, ToolType.ALL_TOOLS),
+    TIN(ToolMaterials.TIN, ToolType.ALL_TOOLS),
     // Compat: Mods
-    THAUMIUM(ToolMaterials.THAUMIUM),
-//    ELEMENTAL(ToolMaterials.ELEMENTAL),
-    STEELEAF(ToolMaterials.STEELEAF),
-    IRONWOOD(ToolMaterials.IRONWOOD),
-    FIERY(ToolMaterials.FIERY),
-//    KNIGHTLY(ToolMaterials.KNIGHTLY),
-    UNSTABLE(ToolMaterials.UNSTABLE);
+    THAUMIUM(ToolMaterials.THAUMIUM, ToolType.EXCAVATOR_HAMMER),
+    STEELEAF(ToolMaterials.STEELEAF, ToolType.EXCAVATOR_HAMMER),
+    IRONWOOD(ToolMaterials.IRONWOOD, ToolType.EXCAVATOR_HAMMER),
+    FIERY(ToolMaterials.FIERY, ToolType.EXCAVATOR_HAMMER),
+    UNSTABLE(ToolMaterials.UNSTABLE, ToolType.EXCAVATOR_HAMMER);
 
     private final String NAME;
     private final EnumToolMaterial MATERIAL;
@@ -58,43 +57,60 @@ public enum Materials implements IToolsProvider {
 
     private final LazyEntry<Item> hammerItem;
     private final LazyEntry<Item> excavatorItem;
+    private final LazyEntry<Item> pickaxeItem;
 
-    Materials(final EnumToolMaterial material) {
+    Materials(final EnumToolMaterial material, final ToolType builder) {
         this.NAME = name().toLowerCase(Locale.ROOT);
         this.MATERIAL = material;
         this.hammerItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
             @Override
             public Item get() {
-                switch (getMaterial()) {
-                    case UNSTABLE:
-                        return new ItemUnstableHammer();
-                    case FIERY:
-                        return new ItemFieryHammer();
-                    case IRONWOOD:
-                        return new ItemIronWoodHammer();
-                    case STEELEAF:
-                        return new ItemSteeleafHammer();
-                    default:
-                        return new ItemBaseHammer(hammerId(), material, getName());
+                if (builder.hasHammer()) {
+                    switch (getMaterial()) {
+                        case UNSTABLE:
+                            return new ItemUnstableHammer();
+                        case FIERY:
+                            return new ItemFieryHammer();
+                        case IRONWOOD:
+                            return new ItemIronWoodHammer();
+                        case STEELEAF:
+                            return new ItemSteeleafHammer();
+                        default:
+                            return new ItemBaseHammer(hammerId(), material, getName());
+                    }
                 }
+                return null;
             }
         });
 
         this.excavatorItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
             @Override
             public Item get() {
-                switch (getMaterial()) {
-                    case UNSTABLE:
-                        return new ItemUnstableExcavator();
-                    case FIERY:
-                        return new ItemFieryExcavator();
-                    case IRONWOOD:
-                        return new ItemIronWoodExcavator();
-                    case STEELEAF:
-                        return new ItemSteeleafExcavator();
-                    default:
-                        return new ItemBaseExcavator(excavatorId(), material, getName());
+                if (builder.hasExcavator()) {
+                    switch (getMaterial()) {
+                        case UNSTABLE:
+                            return new ItemUnstableExcavator();
+                        case FIERY:
+                            return new ItemFieryExcavator();
+                        case IRONWOOD:
+                            return new ItemIronWoodExcavator();
+                        case STEELEAF:
+                            return new ItemSteeleafExcavator();
+                        default:
+                            return new ItemBaseExcavator(excavatorId(), material, getName());
+                    }
                 }
+                return null;
+            }
+        });
+
+        this.pickaxeItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                if (builder.hasPickaxe()) {
+                    return new ItemBasePickaxe(pickaxeId(), material, getName());
+                }
+                return null;
             }
         });
     }
@@ -115,6 +131,10 @@ public enum Materials implements IToolsProvider {
         return CompanionConfig.toolsIdStartIndex + VALUES.length + ordinal();
     }
 
+    public int pickaxeId() {
+        return CompanionConfig.toolsIdStartIndex + (VALUES.length * 2) + ordinal();
+    }
+
     @Override
     public String getName() {
         return this.NAME;
@@ -128,5 +148,82 @@ public enum Materials implements IToolsProvider {
     @Override
     public Item getHammerItem() {
         return this.hammerItem.get();
+    }
+
+    @Override
+    public Item getPickaxeItem() {
+        return pickaxeItem.get();
+    }
+
+    public static class ToolType {
+        // add these if needed
+        private final boolean excavator;
+        private final boolean hammer;
+        private final boolean pickaxe;
+        private final boolean sword;
+
+        private static final ToolType EXCAVATOR_HAMMER = new ToolType.Builder().addExcavator().addHammer().build();
+        private static final ToolType ALL_TOOLS = new ToolType.Builder().addExcavator().addHammer().addPickaxe().addSword().build();
+
+        private ToolType(Builder builder) {
+            this.excavator = builder.excavator;
+            this.hammer = builder.hammer;
+            this.pickaxe = builder.pickaxe;
+            this.sword = builder.sword;
+        }
+
+        public boolean hasExcavator() {
+            return excavator;
+        }
+
+        public boolean hasHammer() {
+            return hammer;
+        }
+
+        public boolean hasPickaxe() {
+            return pickaxe;
+        }
+
+        public boolean hasSword() {
+            return sword;
+        }
+
+        public static class Builder {
+            private boolean excavator;
+            private boolean hammer;
+            private boolean pickaxe;
+            private boolean sword;
+
+            public Builder() {
+                this.excavator = false;
+                this.hammer = false;
+                this.pickaxe = false;
+                this.sword = false;
+            }
+
+            public Builder addExcavator() {
+                this.excavator = true;
+                return this;
+            }
+
+            public Builder addHammer() {
+                this.hammer = true;
+                return this;
+            }
+
+            public Builder addPickaxe() {
+                this.pickaxe = true;
+                return this;
+            }
+
+            public Builder addSword() {
+                this.sword = true;
+                return this;
+            }
+
+            public ToolType build() {
+                return new ToolType(this);
+            }
+        }
     }
 }

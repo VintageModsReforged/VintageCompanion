@@ -16,6 +16,74 @@ public class Tools {
     public static void init() {
         initHammers();
         initExcavators();
+        initPickaxes();
+    }
+
+    public static void initPickaxes() {
+        if (shouldAdd("ingotAluminium") || shouldAdd("ingotAluminum")) {
+            Item alum_pick = ALUM.getPickaxeItem();
+            if (shouldAdd("ingotAluminium")) {
+                addPick(alum_pick, "ingotAluminium");
+            }
+            if (shouldAdd("ingotAluminum")) {
+                addPick(alum_pick, "ingotAluminum");
+            }
+        }
+        if (shouldAdd("ingotBronze")) {
+            addPick(BRONZE.getPickaxeItem(), "ingotBronze");
+        }
+        if (shouldAdd("ingotCupronickel") || shouldAdd("ingotConstantan")) {
+            Item constantan_hammer = CONSTANTAN.getPickaxeItem();
+            if (shouldAdd("ingotCupronickel")) {
+                addPick(constantan_hammer, "ingotCupronickel");
+            }
+            if (shouldAdd("ingotConstantan")) {
+                addPick(constantan_hammer, "ingotConstantan");
+            }
+        }
+        if (shouldAdd("ingotCopper")) {
+            addPick(COPPER.getPickaxeItem(), "ingotCopper");
+        }
+        if (shouldAdd("ingotElectrum")) {
+            addPick(ELECTRUM.getPickaxeItem(), "ingotElectrum");
+        }
+        if (shouldAdd("ingotInvar")) {
+            addPick(INVAR.getPickaxeItem(), "ingotInvar");
+        }
+        if (shouldAdd("ingotLead")) {
+            addPick(LEAD.getPickaxeItem(), "ingotLead");
+        }
+        if (shouldAdd("ingotNickel")) {
+            addPick(NICKEL.getPickaxeItem(), "ingotNickel");
+        }
+        if (shouldAdd("ingotPlatinum")) {
+            addPick(PLATINUM.getPickaxeItem(), "ingotPlatinum");
+        }
+        if (shouldAdd("ingotSilver")) {
+            addPick(SILVER.getPickaxeItem(), "ingotSilver");
+        }
+        if (shouldAdd("ingotSteel")) {
+            addPick(STEEL.getPickaxeItem(), "ingotSteel");
+        }
+        if (shouldAdd("ingotTin")) {
+            addPick(TIN.getPickaxeItem(), "ingotTin");
+        }
+
+        addPick(NETHER_QUARTZ.getPickaxeItem(), Item.netherQuartz);
+
+        if (shouldAdd("crystalCertusQuartz")) {
+            addPick(CERTUS_QUARTZ.getPickaxeItem(), "crystalCertusQuartz");
+        }
+
+        if (shouldAdd("gemRuby")) {
+            addPick(RUBY.getPickaxeItem(), "gemRuby");
+        }
+        if (shouldAdd("gemSapphire")) {
+            addPick(SAPPHIRE.getPickaxeItem(), "gemSapphire");
+        }
+        if (shouldAdd("gemGreenSapphire")) {
+            addPick(GREEN_SAPPHIRE.getPickaxeItem(), "gemGreenSapphire");
+        }
     }
 
     public static void initHammers() {
@@ -227,6 +295,13 @@ public class Tools {
                         'P', Block.obsidian));
             }
         }
+    }
+
+    public static void addPick(Item pick, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(pick,
+                "XXX", " P ", " P ",
+                'X', material,
+                'P', Item.stick));
     }
 
     public static void addHammer(Item hammer, Object material) {

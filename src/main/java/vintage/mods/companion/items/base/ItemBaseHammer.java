@@ -4,7 +4,6 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.item.EnumToolMaterial;
 import vintage.mods.companion.Refs;
-import vintage.mods.companion.items.Materials;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -14,7 +13,7 @@ import net.minecraftforge.common.MinecraftForge;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ItemBaseHammer extends ItemToolBase {
+public class ItemBaseHammer extends ItemToolAOEBase {
 
     public Set<Material> mineableBlockMaterials = new HashSet<Material>();
 

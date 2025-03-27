@@ -9,4 +9,6 @@ public interface IToolsProvider {
     Item getHammerItem();
     // excavator
     Item getExcavatorItem();
+    // pickaxe
+    Item getPickaxeItem();
 }

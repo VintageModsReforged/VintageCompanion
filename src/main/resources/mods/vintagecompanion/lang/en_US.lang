@@ -30,6 +30,24 @@ item.fiery.hammer.name=Fiery Hammer
 item.knightly.hammer.name=Knightly Hammer
 item.unstable.hammer.name=Unstable Hammer
 
+item.nether_quartz.pickaxe.name=Quartz Pickaxe
+item.ruby.pickaxe.name=Ruby Pickaxe
+item.sapphire.pickaxe.name=Sapphire Pickaxe
+item.green_sapphire.pickaxe.name=Green Sapphire Pickaxe
+
+item.alum.pickaxe.name=Alum Pickaxe
+item.bronze.pickaxe.name=Bronze Pickaxe
+item.constantan.pickaxe.name=Constantan Pickaxe
+item.copper.pickaxe.name=Copper Pickaxe
+item.electrum.pickaxe.name=Electrum Pickaxe
+item.invar.pickaxe.name=Invar Pickaxe
+item.lead.pickaxe.name=Lead Pickaxe
+item.nickel.pickaxe.name=Nickel Pickaxe
+item.platinum.pickaxe.name=Platinum Pickaxe
+item.silver.pickaxe.name=Silver Pickaxe
+item.steel.pickaxe.name=Steel Pickaxe
+item.tin.pickaxe.name=Tin Pickaxe
+
 item.wood.excavator.name=Wooden Excavator
 item.stone.excavator.name=Stone Excavator
 item.gold.excavator.name=Golden Excavator
