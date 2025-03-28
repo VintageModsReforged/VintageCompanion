@@ -128,4 +128,9 @@ public class ItemBaseSickle extends ItemBaseMiningTool {
                 return 0;
         }
     }
+
+    @Override
+    public boolean isBookEnchantable(ItemStack stack, ItemStack book) {
+        return true;
+    }
 }
