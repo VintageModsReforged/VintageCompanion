@@ -128,7 +128,7 @@ public class Tools {
                         " XS", "P S", " XS",
                         'S', "ingotUnstable",
                         'X', Block.obsidian,
-                        'P', Item.stick));
+                        'P', DIAMOND.getBowItem()));
             }
         }
     }
