@@ -2,19 +2,16 @@ package vintage.mods.companion.items.compat.exu;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import vintage.mods.companion.Refs;
-import vintage.mods.companion.items.Materials;
-import vintage.mods.companion.items.base.ItemBaseHammer;
 import extrautils.item.IItemMultiTransparency;
 import mods.vintage.core.helpers.BlockHelper;
-import mods.vintage.core.platform.lang.FormattedTranslator;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
-
-import java.util.List;
+import vintage.mods.companion.Refs;
+import vintage.mods.companion.items.Materials;
+import vintage.mods.companion.items.base.ItemBaseHammer;
 
 public class ItemUnstableHammer extends ItemBaseHammer implements IItemMultiTransparency {
 
@@ -28,13 +25,6 @@ public class ItemUnstableHammer extends ItemBaseHammer implements IItemMultiTran
     @Override
     public boolean isRepairable() {
         return false;
-    }
-
-    @SuppressWarnings("all")
-    @Override
-    public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean debug) {
-        super.addInformation(stack, player, list, debug);
-        list.add(FormattedTranslator.RED.format("tooltips.info.warning.craft"));
     }
 
     @Override

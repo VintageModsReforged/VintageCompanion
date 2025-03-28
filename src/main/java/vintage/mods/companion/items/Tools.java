@@ -39,15 +39,9 @@ public class Tools {
                         if (material.getToolType().hasHammer()) {
                             addHammer(material.getHammerItem(), itemID);
                         }
-                    }
-
-                    if (material != STEELEAF && material != IRONWOOD && material != FIERY && material != UNSTABLE) {
                         if (material.getToolType().hasExcavator()) {
                             addExcavator(material.getExcavatorItem(), itemID);
                         }
-                    }
-
-                    if (material != STEELEAF && material != IRONWOOD && material != FIERY && material != UNSTABLE) {
                         if (material.getToolType().hasSickle()) {
                             addSickle(material.getSickleItem(), itemID);
                         }

@@ -204,3 +204,5 @@ item.unstable.sickle.name=Unstable Sickle
 tooltips.info.use_warning=DON'T USE THIS! IT MIGHT CRASH YOUR GAME!
 tooltips.info.warning.craft=- Do not craft unless ready -
 tooltips.info.auto_smelting=Auto-Smelting!
+tooltips.info.durability=Durability: %s
+tooltips.info.durability.unbreakable=Unbreakable?

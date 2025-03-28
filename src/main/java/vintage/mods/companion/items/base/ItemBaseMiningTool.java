@@ -41,6 +41,12 @@ public class ItemBaseMiningTool extends ItemTool {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean debug) {
         super.addInformation(stack, player, list, debug);
+        if (this.material == Materials.UNSTABLE) {
+            list.add(FormattedTranslator.GRAY.format("tooltips.info.durability", FormattedTranslator.RED.format("tooltips.info.durability.unbreakable")));
+            list.add(FormattedTranslator.RED.format("tooltips.info.warning.craft"));
+        } else {
+            list.add(FormattedTranslator.GRAY.format("tooltips.info.durability", FormattedTranslator.AQUA.literal((stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage())));
+        }
         if (this.material == Materials.FIERY) {
             list.add(FormattedTranslator.YELLOW.format("tooltips.info.auto_smelting"));
         }
