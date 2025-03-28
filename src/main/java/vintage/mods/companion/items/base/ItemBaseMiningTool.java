@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import vintage.mods.companion.VintageCompanion;
 import vintage.mods.companion.items.Materials;
-import vintage.mods.companion.items.ToolAction;
+import vintage.mods.companion.utils.ToolAction;
 
 import java.util.List;
 import java.util.Locale;

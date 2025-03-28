@@ -7,16 +7,17 @@ import vintage.mods.companion.items.base.*;
 import vintage.mods.companion.items.compat.exu.ItemUnstableExcavator;
 import vintage.mods.companion.items.compat.exu.ItemUnstableHammer;
 import vintage.mods.companion.items.compat.exu.ItemUnstableSickle;
+import vintage.mods.companion.utils.LazyEntry;
 
 import java.util.Locale;
 
 public enum Materials implements IToolsProvider {
     // vanilla
     WOOD(ToolMaterials.WOOD, new Ingredient("plankWood"), ToolType.EXCAVATOR_HAMMER.copy().addShears().addSickle().build()),
-    STONE(ToolMaterials.STONE, new Ingredient("cobblestone"), ToolType.EXCAVATOR_HAMMER.copy().addShears().addSickle().build()),
-    GOLD(ToolMaterials.GOLD, new Ingredient("ingotGold"), ToolType.EXCAVATOR_HAMMER.copy().addShears().addSickle().build()),
-    IRON(ToolMaterials.IRON, new Ingredient("ingotIron"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().build()),
-    DIAMOND(ToolMaterials.DIAMOND, new Ingredient("gemDiamond"), ToolType.EXCAVATOR_HAMMER.copy().addShears().addSickle().build()),
+    STONE(ToolMaterials.STONE, new Ingredient("cobblestone"), ToolType.EXCAVATOR_HAMMER.copy().addShears().addSickle().addBow().build()),
+    GOLD(ToolMaterials.GOLD, new Ingredient("ingotGold"), ToolType.EXCAVATOR_HAMMER.copy().addShears().addSickle().addBow().build()),
+    IRON(ToolMaterials.IRON, new Ingredient("ingotIron"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().addBow().build()),
+    DIAMOND(ToolMaterials.DIAMOND, new Ingredient("gemDiamond"), ToolType.EXCAVATOR_HAMMER.copy().addShears().addSickle().addBow().build()),
     // Applied Energistics
     NETHER_QUARTZ(ToolMaterials.NETHER_QUARTZ, new Ingredient("crystalNetherQuartz"), ToolType.ALL_TOOLS.build()),
     CERTUS_QUARTZ(ToolMaterials.CERTUS_QUARTZ, new Ingredient("crystalCertusQuartz"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().build()),
@@ -25,24 +26,24 @@ public enum Materials implements IToolsProvider {
     SAPPHIRE(ToolMaterials.GEM, new Ingredient("gemSapphire"), ToolType.ALL_TOOLS.build()),
     GREEN_SAPPHIRE(ToolMaterials.GEM, new Ingredient("gemGreenSapphire"), ToolType.ALL_TOOLS.build()),
     // Base Metals
-    ALUMINIUM(ToolMaterials.ALUM, new Ingredient("ingotAluminium", "ingotAluminum"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    BRONZE(ToolMaterials.BRONZE, new Ingredient("ingotBronze"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    CONSTANTAN(ToolMaterials.CONSTANTAN, new Ingredient("ingotCupronickel", "ingotConstantan"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    COPPER(ToolMaterials.COPPER, new Ingredient("ingotCopper"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    ELECTRUM(ToolMaterials.ELECTRUM, new Ingredient("ingotElectrum"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    INVAR(ToolMaterials.INVAR, new Ingredient("ingotInvar"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    LEAD(ToolMaterials.LEAD, new Ingredient("ingotLead"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    NICKEL(ToolMaterials.NICKEL, new Ingredient("ingotNickel"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    PLATINUM(ToolMaterials.PLATINUM, new Ingredient("ingotPlatinum"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    SILVER(ToolMaterials.SILVER, new Ingredient("ingotSilver"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    STEEL(ToolMaterials.STEEL, new Ingredient("ingotSteel"), ToolType.ALL_TOOLS.copy().addShears().build()),
-    TIN(ToolMaterials.TIN, new Ingredient("ingotTin"), ToolType.ALL_TOOLS.copy().addShears().build()),
+    ALUMINIUM(ToolMaterials.ALUM, new Ingredient("ingotAluminium", "ingotAluminum"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    BRONZE(ToolMaterials.BRONZE, new Ingredient("ingotBronze"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    CONSTANTAN(ToolMaterials.CONSTANTAN, new Ingredient("ingotCupronickel", "ingotConstantan"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    COPPER(ToolMaterials.COPPER, new Ingredient("ingotCopper"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    ELECTRUM(ToolMaterials.ELECTRUM, new Ingredient("ingotElectrum"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    INVAR(ToolMaterials.INVAR, new Ingredient("ingotInvar"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    LEAD(ToolMaterials.LEAD, new Ingredient("ingotLead"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    NICKEL(ToolMaterials.NICKEL, new Ingredient("ingotNickel"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    PLATINUM(ToolMaterials.PLATINUM, new Ingredient("ingotPlatinum"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    SILVER(ToolMaterials.SILVER, new Ingredient("ingotSilver"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    STEEL(ToolMaterials.STEEL, new Ingredient("ingotSteel"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
+    TIN(ToolMaterials.TIN, new Ingredient("ingotTin"), ToolType.ALL_TOOLS.copy().addShears().addBow().build()),
     // Compat: Mods
     THAUMIUM(ToolMaterials.THAUMIUM, new Ingredient("ingotThaumium"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().build()),
     STEELEAF(ToolMaterials.STEELEAF, new Ingredient("ingotSteeleaf"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().build()),
     IRONWOOD(ToolMaterials.IRONWOOD, new Ingredient("ingotIronwood"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().build()),
     FIERY(ToolMaterials.FIERY, new Ingredient("ingotFiery"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().build()),
-    UNSTABLE(ToolMaterials.UNSTABLE, new Ingredient("ingotUnstable"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().build());
+    UNSTABLE(ToolMaterials.UNSTABLE, new Ingredient("ingotUnstable"), ToolType.EXCAVATOR_HAMMER.copy().addSickle().addBow().build());
 
     private static int totalToolCount = 0;
     private final ToolType toolType;
@@ -61,6 +62,7 @@ public enum Materials implements IToolsProvider {
     private final LazyEntry<Item> axeItem;
     private final LazyEntry<Item> shearsItem;
     private final LazyEntry<Item> sickleItem;
+    private final LazyEntry<Item> bowItem;
 
     Materials(final EnumToolMaterial material, Ingredient ingredients, final ToolType builder) {
         this.NAME = name().toLowerCase(Locale.ROOT);
@@ -171,6 +173,17 @@ public enum Materials implements IToolsProvider {
                 return null;
             }
         });
+
+        this.bowItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                if (builder.hasBow()) {
+                    int bowId = getToolId(totalToolCount++);
+                    return new ItemBaseBow(bowId, getMaterial(), getName());
+                }
+                return null;
+            }
+        });
     }
 
     private static int getToolId(int totalToolsAdded) {
@@ -243,6 +256,11 @@ public enum Materials implements IToolsProvider {
         return sickleItem.get();
     }
 
+    @Override
+    public Item getBowItem() {
+        return bowItem.get();
+    }
+
     public static class ToolType {
         // add these if needed
         private final boolean excavator;
@@ -254,6 +272,7 @@ public enum Materials implements IToolsProvider {
         private final boolean axe;
         private final boolean shears;
         private final boolean sickle;
+        private final boolean bow;
 
         private static final ToolType.Builder EXCAVATOR_HAMMER = new ToolType.Builder().addExcavator().addHammer();
         private static final ToolType.Builder ALL_TOOLS = new ToolType.Builder().addExcavator().addHammer().addPickaxe().addSword().addShovel().addHoe().addAxe().addSickle();
@@ -268,6 +287,7 @@ public enum Materials implements IToolsProvider {
             this.axe = builder.axe;
             this.shears = builder.shears;
             this.sickle = builder.sickle;
+            this.bow = builder.bow;
         }
 
         public boolean hasExcavator() {
@@ -306,6 +326,10 @@ public enum Materials implements IToolsProvider {
             return sickle;
         }
 
+        public boolean hasBow() {
+            return bow;
+        }
+
         public static class Builder {
             private boolean excavator;
             private boolean hammer;
@@ -316,6 +340,7 @@ public enum Materials implements IToolsProvider {
             private boolean axe;
             private boolean shears;
             private boolean sickle;
+            private boolean bow;
 
             public Builder() {
                 this.excavator = false;
@@ -327,6 +352,7 @@ public enum Materials implements IToolsProvider {
                 this.axe = false;
                 this.shears = false;
                 this.sickle = false;
+                this.bow = false;
             }
 
             public Builder addExcavator() {
@@ -374,6 +400,11 @@ public enum Materials implements IToolsProvider {
                 return this;
             }
 
+            public Builder addBow() {
+                this.bow = true;
+                return this;
+            }
+
             public ToolType build() {
                 return new ToolType(this);
             }
@@ -389,6 +420,7 @@ public enum Materials implements IToolsProvider {
                 if (this.hoe) copy.addHoe();
                 if (this.axe) copy.addAxe();
                 if (this.sickle) copy.addSickle();
+                if (this.bow) copy.addBow();
                 return copy;
             }
         }

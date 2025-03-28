@@ -46,6 +46,11 @@ public class Tools {
                             addSickle(material.getSickleItem(), itemID);
                         }
                     }
+                    if (material != UNSTABLE) {
+                        if (material.getToolType().hasBow()) {
+                            addBow(material.getBowItem(), itemID);
+                        }
+                    }
                 }
             }
         }
@@ -118,8 +123,22 @@ public class Tools {
                         " X ", "  X", "PX ",
                         'X', "ingotUnstable",
                         'P', Block.obsidian));
+
+                GameRegistry.addRecipe(new ShapedOreRecipe(UNSTABLE.getBowItem(),
+                        " XS", "P S", " XS",
+                        'S', "ingotUnstable",
+                        'X', Block.obsidian,
+                        'P', Item.stick));
             }
         }
+    }
+
+    public static void addBow(Item pick, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(pick,
+                " XS", "P S", " XS",
+                'S', Item.silk,
+                'X', material,
+                'P', Item.stick));
     }
 
     public static void addSword(Item pick, Object material) {

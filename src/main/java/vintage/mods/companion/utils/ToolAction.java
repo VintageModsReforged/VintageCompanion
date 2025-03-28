@@ -1,4 +1,4 @@
-package vintage.mods.companion.items;
+package vintage.mods.companion.utils;
 
 import mods.vintage.core.helpers.ToolHelper;
 import net.minecraft.block.Block;

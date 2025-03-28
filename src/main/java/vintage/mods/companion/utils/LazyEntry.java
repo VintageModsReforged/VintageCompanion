@@ -1,4 +1,4 @@
-package vintage.mods.companion.items;
+package vintage.mods.companion.utils;
 
 //TODO: Move to VintageCore
 public class LazyEntry<T> {

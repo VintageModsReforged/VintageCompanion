@@ -23,4 +23,6 @@ public interface IToolsProvider {
     Item getShearsItem();
     // sickle
     Item getSickleItem();
+    // bow
+    Item getBowItem();
 }

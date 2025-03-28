@@ -194,6 +194,26 @@ item.silver.sickle.name=Silver Sickle
 item.steel.sickle.name=Steel Sickle
 item.tin.sickle.name=Tin Sickle
 
+item.stone.bow.name=Stone Bow
+item.gold.bow.name=Golden Bow
+item.iron.bow.name=Iron Bow
+item.diamond.bow.name=Diamond Bow
+item.ruby.sickle.name=Ruby Bow
+
+item.aluminium.bow.name=Aluminium Bow
+item.bronze.bow.name=Bronze Bow
+item.constantan.bow.name=Constantan Bow
+item.copper.bow.name=Copper Bow
+item.electrum.bow.name=Electrum Bow
+item.invar.bow.name=Invar Bow
+item.lead.bow.name=Lead Bow
+item.nickel.bow.name=Nickel Bow
+item.platinum.bow.name=Platinum Bow
+item.silver.bow.name=Silver Bow
+item.steel.bow.name=Steel Bow
+item.tin.bow.name=Tin Bow
+item.unstable.bow.name=Unstable Bow
+
 item.thaumium.sickle.name=Thaumium Sickle
 item.steeleaf.sickle.name=Steeleaf Sickle
 item.ironwood.sickle.name=Ironwood Sickle
