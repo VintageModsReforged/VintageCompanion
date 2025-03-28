@@ -20,7 +20,6 @@ import java.util.Set;
 public class ItemBaseSickle extends ItemBaseMiningTool {
 
     public Set<Material> mineableBlockMaterials = new HashSet<Material>();
-    int radius = 3;
 
     public ItemBaseSickle(int id, Materials material, String name) {
         super(id, 3, material, name);
@@ -74,11 +73,12 @@ public class ItemBaseSickle extends ItemBaseMiningTool {
         }
 
         world.playAuxSFXAtEntity(player, 2001, x, y, z, block.blockID | (world.getBlockMetadata(x, y, z) << 12));
+        int radius = player.isSneaking() ? 0 : getRadius();
         for (int i = x - radius; i <= x + radius; i++) {
             for (int k = z - radius; k <= z + radius; k++) {
                 if (!world.isAirBlock(i, y, k)) {
                     Block adjBlock = BlockHelper.getBlock(world, i, y, k);
-                    if (canHarvestBlock(adjBlock) && ToolHelper.harvestBlock(world, i, y, k, player)) {
+                    if (canHarvestBlock(adjBlock) && ToolHelper.harvestAndDrop(world, i, y, k, player, getToolAction())) {
                         mined++;
                     }
                 }
@@ -88,5 +88,44 @@ public class ItemBaseSickle extends ItemBaseMiningTool {
             stack.damageItem(mined, player);
         }
         return true;
+    }
+
+    public int getRadius() {
+        switch (this.material) {
+            case WOOD:
+            case ELECTRUM:
+            case GOLD:
+                return 1;
+            case STONE:
+            case ALUM:
+            case COPPER:
+            case LEAD:
+            case SILVER:
+            case TIN:
+                return 2;
+            case IRON:
+            case NETHER_QUARTZ:
+            case CERTUS_QUARTZ:
+            case RUBY:
+            case SAPPHIRE:
+            case GREEN_SAPPHIRE:
+            case IRONWOOD:
+            case BRONZE:
+            case CONSTANTAN:
+            case NICKEL:
+            case STEEL:
+            case INVAR:
+                return 3;
+            case DIAMOND:
+            case THAUMIUM:
+            case UNSTABLE:
+            case STEELEAF:
+                return 4;
+            case FIERY:
+            case PLATINUM:
+                return 5;
+            default:
+                return 0;
+        }
     }
 }

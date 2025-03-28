@@ -26,7 +26,7 @@ public class ItemBaseMiningTool extends ItemTool {
 
     public String name;
     private final Materials.Ingredient repairs;
-    private final Materials material;
+    protected final Materials material;
 
     public ItemBaseMiningTool(int id, int attack, Materials material, String name) {
         super(id, attack, material.getToolMaterial(), new Block[0]);
