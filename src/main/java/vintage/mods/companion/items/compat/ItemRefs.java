@@ -1,7 +1,7 @@
 package vintage.mods.companion.items.compat;
 
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
+import vintage.mods.companion.utils.LazyEntry;
 
 public class ItemRefs {
 
@@ -11,39 +11,54 @@ public class ItemRefs {
 
     public static Class<?> MOD_CLASS;
 
-    public static ItemStack getUnstableStack() {
-        Item placeholder = getItem(EXU_ITEM_CLASS, "unstableIngot");
-        if (placeholder == null) {
-            return null;
-        } else return new ItemStack(placeholder);
+    public static LazyEntry<Item> unstableStack() {
+        final Item placeholder = getItem(EXU_ITEM_CLASS, "unstableIngot");
+        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                return placeholder;
+            }
+        });
     }
 
-    public static ItemStack getSteeleafStack() {
-        Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "steeleafIngot");
-        if (placeholder == null) {
-            return null;
-        } else return new ItemStack(placeholder);
+    public static LazyEntry<Item> steeleafStack() {
+        final Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "steeleafIngot");
+        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                return placeholder;
+            }
+        });
     }
 
-    public static ItemStack getIronwoodStack() {
-        Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "ironwoodIngot");
-        if (placeholder == null) {
-            return null;
-        } else return new ItemStack(placeholder);
+    public static LazyEntry<Item> ironwoodStack() {
+        final Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "ironwoodIngot");
+        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                return placeholder;
+            }
+        });
     }
 
-    public static ItemStack getFieryStack() {
-        Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "fieryIngot");
-        if (placeholder == null) {
-            return null;
-        } else return new ItemStack(placeholder);
+    public static LazyEntry<Item> fieryStack() {
+        final Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "fieryIngot");
+        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                return placeholder;
+            }
+        });
     }
 
-    public static ItemStack getThaumiumStack() {
-        Item placeholder = getItem(THAUMCRAFT_ITEM_CLASS, "itemResource");
-        if (placeholder == null) {
-            return null;
-        } else return new ItemStack(placeholder, 1, 2);
+    public static LazyEntry<Item> thaumiumStack() {
+        final Item placeholder = getItem(THAUMCRAFT_ITEM_CLASS, "itemResource");
+        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+            @Override
+            public Item get() {
+                return placeholder;
+            }
+        });
     }
 
     public static Item getItem(String path, String name) {

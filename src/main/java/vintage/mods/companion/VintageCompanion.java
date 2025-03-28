@@ -61,30 +61,22 @@ public class VintageCompanion implements ILangProvider {
         OreDictionary.registerOre("gemDiamond", Item.diamond);
         OreDictionary.registerOre("crystalNetherQuartz", Item.netherQuartz);
         if (Loader.isModLoaded("ExtraUtilities")) {
-            ItemStack unstableStack = ItemRefs.getUnstableStack();
-            if (unstableStack != null) {
-                OreDictionary.registerOre("ingotUnstable", unstableStack);
-            }
+            Item unstableStack = ItemRefs.unstableStack().get();
+            OreDictionary.registerOre("ingotUnstable", unstableStack);
         }
         if (Loader.isModLoaded("TwilightForest")) {
-            ItemStack steeleafIngotStack = ItemRefs.getSteeleafStack();
-            if (steeleafIngotStack != null) {
-                OreDictionary.registerOre("ingotSteeleaf", steeleafIngotStack);
-            }
-            ItemStack ironwoodIngotStack = ItemRefs.getIronwoodStack();
-            if (ironwoodIngotStack != null) {
-                OreDictionary.registerOre("ingotIronwood", ironwoodIngotStack);
-            }
-            ItemStack fieryStack = ItemRefs.getFieryStack();
-            if (fieryStack != null) {
-                OreDictionary.registerOre("ingotFiery", fieryStack);
-            }
+            Item steeleafIngotStack = ItemRefs.steeleafStack().get();
+            OreDictionary.registerOre("ingotSteeleaf", steeleafIngotStack);
+
+            Item ironwoodIngotStack = ItemRefs.ironwoodStack().get();
+            OreDictionary.registerOre("ingotIronwood", ironwoodIngotStack);
+
+            Item fieryStack = ItemRefs.fieryStack().get();
+            OreDictionary.registerOre("ingotFiery", fieryStack);
         }
         if (Loader.isModLoaded("Thaumcraft")) {
-            ItemStack thaumiumIngotStack = ItemRefs.getThaumiumStack();
-            if (thaumiumIngotStack != null) {
-                OreDictionary.registerOre("ingotThaumium", thaumiumIngotStack);
-            }
+            Item thaumiumIngotStack = ItemRefs.thaumiumStack().get();
+            OreDictionary.registerOre("ingotThaumium", thaumiumIngotStack);
         }
         Tools.init();
         PROXY.registerRenderInformation();
