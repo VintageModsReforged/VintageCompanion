@@ -37,6 +37,9 @@ public class Tools {
                     if (material.getToolType().hasAxe()) {
                         addAxe(material.getAxeItem(), itemID);
                     }
+                    if (material.getToolType().hasShears()) {
+                        addShears(material.getShearsItem(), itemID);
+                    }
                 }
             }
         }
@@ -196,5 +199,11 @@ public class Tools {
                 " X ", "XPX", " P ",
                 'X', material,
                 'P', Item.stick));
+    }
+
+    public static void addShears(Item shears, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(shears,
+                "X ", " X",
+                'X', material));
     }
 }

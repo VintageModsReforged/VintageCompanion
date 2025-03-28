@@ -144,6 +144,24 @@ item.silver.excavator.name=Silver Excavator
 item.steel.excavator.name=Steel Excavator
 item.tin.excavator.name=Tin Excavator
 
+item.wood.shear.name=Wooden Shears
+item.stone.shear.name=Stone Shears
+item.gold.shear.name=Golden Shears
+item.diamond.shear.name=Diamond Shears
+
+item.alum.shear.name=Alum Shears
+item.bronze.shear.name=Bronze Shears
+item.constantan.shear.name=Constantan Shears
+item.copper.shear.name=Copper Shears
+item.electrum.shear.name=Electrum Shears
+item.invar.shear.name=Invar Shears
+item.lead.shear.name=Lead Shears
+item.nickel.shear.name=Nickel Shears
+item.platinum.shear.name=Platinum Shears
+item.silver.shear.name=Silver Shears
+item.steel.shear.name=Steel Shears
+item.tin.shear.name=Tin Shears
+
 item.thaumium.excavator.name=Thaumium Excavator
 item.elemental.excavator.name=Excavator of the Earthmover
 item.steeleaf.excavator.name=Steeleaf Excavator
