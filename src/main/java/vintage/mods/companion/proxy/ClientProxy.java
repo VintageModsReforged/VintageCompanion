@@ -11,6 +11,7 @@ public class ClientProxy extends CommonProxy {
         if (Loader.isModLoaded("ExtraUtilities")) {
             MinecraftForgeClient.registerItemRenderer(Materials.UNSTABLE.getHammerItem().itemID, extrautils.ExtraUtilsClient.renderItemMultiTransparency);
             MinecraftForgeClient.registerItemRenderer(Materials.UNSTABLE.getExcavatorItem().itemID, extrautils.ExtraUtilsClient.renderItemMultiTransparency);
+            MinecraftForgeClient.registerItemRenderer(Materials.UNSTABLE.getSickleItem().itemID, extrautils.ExtraUtilsClient.renderItemMultiTransparency);
         }
     }
 }

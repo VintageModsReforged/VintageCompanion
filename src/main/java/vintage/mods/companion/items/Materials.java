@@ -6,6 +6,7 @@ import net.minecraft.item.EnumToolMaterial;
 import vintage.mods.companion.items.base.*;
 import vintage.mods.companion.items.compat.exu.ItemUnstableExcavator;
 import vintage.mods.companion.items.compat.exu.ItemUnstableHammer;
+import vintage.mods.companion.items.compat.exu.ItemUnstableSickle;
 
 import java.util.Locale;
 
@@ -73,8 +74,7 @@ public enum Materials implements IToolsProvider {
                     int hammerId = getToolId(totalToolCount++);
                     if (getMaterial() == Materials.UNSTABLE) {
                         return new ItemUnstableHammer(hammerId);
-                    }
-                    return new ItemBaseHammer(hammerId, getMaterial(), getName());
+                    } else return new ItemBaseHammer(hammerId, getMaterial(), getName());
                 }
                 return null;
             }
@@ -87,8 +87,7 @@ public enum Materials implements IToolsProvider {
                     int excavatorId = getToolId(totalToolCount++);
                     if (getMaterial() == Materials.UNSTABLE) {
                         return new ItemUnstableExcavator(excavatorId);
-                    }
-                    return new ItemBaseExcavator(excavatorId, getMaterial(), getName());
+                    } else return new ItemBaseExcavator(excavatorId, getMaterial(), getName());
                 }
                 return null;
             }
@@ -165,7 +164,9 @@ public enum Materials implements IToolsProvider {
             public Item get() {
                 if (builder.hasSickle()) {
                     int sickleId = getToolId(totalToolCount++);
-                    return new ItemBaseSickle(sickleId, getMaterial(), getName());
+                    if (getMaterial() == UNSTABLE) {
+                        return new ItemUnstableSickle(sickleId);
+                    } else return new ItemBaseSickle(sickleId, getMaterial(), getName());
                 }
                 return null;
             }

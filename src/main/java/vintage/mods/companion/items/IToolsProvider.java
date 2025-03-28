@@ -21,4 +21,6 @@ public interface IToolsProvider {
     Item getAxeItem();
     // shears
     Item getShearsItem();
+    // sickle
+    Item getSickleItem();
 }

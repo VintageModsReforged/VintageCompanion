@@ -63,6 +63,7 @@ public class ItemBaseSickle extends ItemBaseMiningTool {
 
     @Override
     public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
+        int mined = 0;
         World world = player.worldObj;
         Block block = BlockHelper.getBlock(world, x, y, z);
         if (!canHarvestBlock(block)) {
@@ -71,15 +72,20 @@ public class ItemBaseSickle extends ItemBaseMiningTool {
             }
             return false;
         }
-        boolean used = false;
+
         world.playAuxSFXAtEntity(player, 2001, x, y, z, block.blockID | (world.getBlockMetadata(x, y, z) << 12));
         for (int i = x - radius; i <= x + radius; i++) {
             for (int k = z - radius; k <= z + radius; k++) {
-                used |= ToolHelper.harvestBlock(world, i, y, k, player);
+                if (!world.isAirBlock(i, y, k)) {
+                    Block adjBlock = BlockHelper.getBlock(world, i, y, k);
+                    if (canHarvestBlock(adjBlock) && ToolHelper.harvestBlock(world, i, y, k, player)) {
+                        mined++;
+                    }
+                }
             }
         }
-        if (used && !player.capabilities.isCreativeMode) {
-            stack.damageItem(1, player);
+        if (mined > 0 && !player.capabilities.isCreativeMode) {
+            stack.damageItem(mined, player);
         }
         return true;
     }

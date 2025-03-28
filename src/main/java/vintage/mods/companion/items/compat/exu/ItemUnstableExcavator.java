@@ -56,17 +56,17 @@ public class ItemUnstableExcavator extends ItemBaseExcavator implements IItemMul
     }
 
     @Override
-    public int numIcons(ItemStack itemStack) {
+    public int numIcons(ItemStack stack) {
         return 2;
     }
 
     @Override
-    public Icon getIconForTransparentRender(ItemStack item, int pass) {
+    public Icon getIconForTransparentRender(ItemStack stack, int pass) {
         return this.icons[pass];
     }
 
     @Override
-    public float getIconTransparency(ItemStack item, int pass) {
+    public float getIconTransparency(ItemStack stack, int pass) {
         return pass == 1 ? 0.5F : 1.0F;
     }
 

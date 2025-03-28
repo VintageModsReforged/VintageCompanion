@@ -144,6 +144,14 @@ item.silver.excavator.name=Silver Excavator
 item.steel.excavator.name=Steel Excavator
 item.tin.excavator.name=Tin Excavator
 
+item.thaumium.excavator.name=Thaumium Excavator
+item.elemental.excavator.name=Excavator of the Earthmover
+item.steeleaf.excavator.name=Steeleaf Excavator
+item.ironwood.excavator.name=Ironwood Excavator
+item.fiery.excavator.name=Fiery Excavator
+item.knightly.excavator.name=Knightly Excavator
+item.unstable.excavator.name=Unstable Excavator
+
 item.wood.shear.name=Wooden Shears
 item.stone.shear.name=Stone Shears
 item.gold.shear.name=Golden Shears
@@ -162,13 +170,36 @@ item.silver.shear.name=Silver Shears
 item.steel.shear.name=Steel Shears
 item.tin.shear.name=Tin Shears
 
-item.thaumium.excavator.name=Thaumium Excavator
-item.elemental.excavator.name=Excavator of the Earthmover
-item.steeleaf.excavator.name=Steeleaf Excavator
-item.ironwood.excavator.name=Ironwood Excavator
-item.fiery.excavator.name=Fiery Excavator
-item.knightly.excavator.name=Knightly Excavator
-item.unstable.excavator.name=Unstable Excavator
+item.wood.sickle.name=Wooden Sickle
+item.stone.sickle.name=Stone Sickle
+item.gold.sickle.name=Golden Sickle
+item.iron.sickle.name=Iron Sickle
+item.diamond.sickle.name=Diamond Sickle
+item.nether_quartz.sickle.name=Quartz Sickle
+item.certus_quartz.sickle.name=Certus Quartz Sickle
+item.ruby.sickle.name=Ruby Sickle
+item.sapphire.sickle.name=Sapphire Sickle
+item.green_sapphire.sickle.name=Green Sapphire Sickle
+
+item.alum.sickle.name=Alum Sickle
+item.bronze.sickle.name=Bronze Sickle
+item.constantan.sickle.name=Constantan Sickle
+item.copper.sickle.name=Copper Sickle
+item.electrum.sickle.name=Electrum Sickle
+item.invar.sickle.name=Invar Sickle
+item.lead.sickle.name=Lead Sickle
+item.nickel.sickle.name=Nickel Sickle
+item.platinum.sickle.name=Platinum Sickle
+item.silver.sickle.name=Silver Sickle
+item.steel.sickle.name=Steel Sickle
+item.tin.sickle.name=Tin Sickle
+
+item.thaumium.sickle.name=Thaumium Sickle
+item.steeleaf.sickle.name=Steeleaf Sickle
+item.ironwood.sickle.name=Ironwood Sickle
+item.fiery.sickle.name=Fiery Sickle
+item.knightly.sickle.name=Knightly Sickle
+item.unstable.sickle.name=Unstable Sickle
 
 tooltips.info.use_warning=DON'T USE THIS! IT MIGHT CRASH YOUR GAME!
 tooltips.info.warning.craft=- Do not craft unless ready -

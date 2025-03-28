@@ -2,9 +2,6 @@ package vintage.mods.companion.items.compat.exu;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import vintage.mods.companion.Refs;
-import vintage.mods.companion.items.Materials;
-import vintage.mods.companion.items.base.ItemBaseHammer;
 import extrautils.item.IItemMultiTransparency;
 import mods.vintage.core.helpers.BlockHelper;
 import mods.vintage.core.platform.lang.FormattedTranslator;
@@ -13,14 +10,17 @@ import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import vintage.mods.companion.Refs;
+import vintage.mods.companion.items.Materials;
+import vintage.mods.companion.items.base.ItemBaseSickle;
 
 import java.util.List;
 
-public class ItemUnstableHammer extends ItemBaseHammer implements IItemMultiTransparency {
+public class ItemUnstableSickle extends ItemBaseSickle implements IItemMultiTransparency {
 
     private Icon[] icons;
 
-    public ItemUnstableHammer(int id) {
+    public ItemUnstableSickle(int id) {
         super(id, Materials.UNSTABLE, Materials.UNSTABLE.getName());
         this.setMaxDamage(-1);
     }
@@ -41,9 +41,9 @@ public class ItemUnstableHammer extends ItemBaseHammer implements IItemMultiTran
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister registry) {
         this.icons = new Icon[2];
-        this.icons[0] = registry.registerIcon(Refs.id + ":hammer/" + this.name);
-        this.icons[1] = registry.registerIcon(Refs.id + ":hammer/" + this.name + "1");
-        this.itemIcon = registry.registerIcon(Refs.id + ":hammer/" + this.name);
+        this.icons[0] = registry.registerIcon(Refs.id + ":sickle/" + this.name);
+        this.icons[1] = registry.registerIcon(Refs.id + ":sickle/" + this.name + "1");
+        this.itemIcon = registry.registerIcon(Refs.id + ":sickle/" + this.name);
     }
 
     @Override
@@ -69,5 +69,4 @@ public class ItemUnstableHammer extends ItemBaseHammer implements IItemMultiTran
     public float getIconTransparency(ItemStack stack, int pass) {
         return pass == 1 ? 0.5F : 1.0F;
     }
-
 }

@@ -14,11 +14,6 @@ import static vintage.mods.companion.items.Materials.*;
 public class Tools {
 
     public static void init() {
-        initHammers();
-        initExcavators();
-        initTools();
-    }
-    public static void initTools() {
         for (Materials material : VALUES) {
             for (String itemID : material.getIngredients().getItems()) {
                 if (shouldAdd(itemID)) {
@@ -40,88 +35,93 @@ public class Tools {
                     if (material.getToolType().hasShears()) {
                         addShears(material.getShearsItem(), itemID);
                     }
-                }
-            }
-        }
-    }
-
-    public static void initHammers() {
-        for (Materials material : VALUES) {
-            for (String itemID : material.getIngredients().getItems()) {
-                if (shouldAdd(itemID)) {
                     if (material != STEELEAF && material != IRONWOOD && material != FIERY && material != UNSTABLE) {
                         if (material.getToolType().hasHammer()) {
                             addHammer(material.getHammerItem(), itemID);
                         }
                     }
+
+                    if (material != STEELEAF && material != IRONWOOD && material != FIERY && material != UNSTABLE) {
+                        if (material.getToolType().hasExcavator()) {
+                            addExcavator(material.getExcavatorItem(), itemID);
+                        }
+                    }
+
+                    if (material != STEELEAF && material != IRONWOOD && material != FIERY && material != UNSTABLE) {
+                        if (material.getToolType().hasSickle()) {
+                            addSickle(material.getSickleItem(), itemID);
+                        }
+                    }
                 }
             }
         }
+        initEXUTools();
+        initTwilightForestTools();
+    }
 
+    public static void initTwilightForestTools() {
         if (shouldRegister("TwilightForest")) {
             if (shouldAdd("ingotSteeleaf")) {
                 ItemStack hammerStack = new ItemStack(STEELEAF.getHammerItem());
                 hammerStack.addEnchantment(Enchantment.fortune, 2);
                 addHammer(hammerStack, "ingotSteeleaf");
+
+                ItemStack excavatorStack = new ItemStack(STEELEAF.getExcavatorItem());
+                excavatorStack.addEnchantment(Enchantment.efficiency, 2);
+                addExcavator(excavatorStack, "ingotSteeleaf");
+
+                ItemStack itemStack = new ItemStack(STEELEAF.getSickleItem());
+                itemStack.addEnchantment(Enchantment.fortune, 2);
+                addSickle(itemStack, "ingotSteeleaf");
+
             }
             if (shouldAdd("ingotIronwood")) {
                 ItemStack hammerStack = new ItemStack(IRONWOOD.getHammerItem());
                 hammerStack.addEnchantment(Enchantment.efficiency, 1);
                 addHammer(hammerStack, "ingotIronwood");
+
+                ItemStack excavatorStack = new ItemStack(IRONWOOD.getExcavatorItem());
+                excavatorStack.addEnchantment(Enchantment.unbreaking, 1);
+                addExcavator(excavatorStack, "ingotIronwood");
+
+                ItemStack itemStack = new ItemStack(IRONWOOD.getSickleItem());
+                itemStack.addEnchantment(Enchantment.efficiency, 1);
+                addSickle(itemStack, "ingotIronwood");
             }
             if (shouldAdd("ingotFiery")) {
                 GameRegistry.addRecipe(new ShapedOreRecipe(FIERY.getHammerItem(),
                         "XXX", "XPX", " P ",
                         'X', "ingotFiery",
                         'P', Item.blazeRod));
+
+                GameRegistry.addRecipe(new ShapedOreRecipe(FIERY.getExcavatorItem(),
+                        "XXX", "XPX", " P ",
+                        'X', "ingotFiery",
+                        'P', Item.blazeRod));
+
+                GameRegistry.addRecipe(new ShapedOreRecipe(FIERY.getSickleItem(),
+                        " X ", "  X", "PX ",
+                        'X', "ingotFiery",
+                        'P', Item.blazeRod));
             }
         }
+    }
+
+    public static void initEXUTools() {
         if (shouldRegister("ExtraUtilities")) {
             if (shouldAdd("ingotUnstable")) {
                 GameRegistry.addRecipe(new ShapedOreRecipe(UNSTABLE.getHammerItem(),
                         "XXX", "XPX", " P ",
                         'X', "ingotUnstable",
                         'P', Block.obsidian));
-            }
-        }
-    }
 
-    public static void initExcavators() {
-        for (Materials material : VALUES) {
-            for (String itemID : material.getIngredients().getItems()) {
-                if (shouldAdd(itemID)) {
-                    if (material != STEELEAF && material != IRONWOOD && material != FIERY && material != UNSTABLE) {
-                        if (material.getToolType().hasExcavator()) {
-                            addExcavator(material.getExcavatorItem(), itemID);
-                        }
-                    }
-                }
-            }
-        }
-
-        if (shouldRegister("TwilightForest")) {
-            if (shouldAdd("ingotSteeleaf")) {
-                ItemStack excavatorStack = new ItemStack(STEELEAF.getExcavatorItem());
-                excavatorStack.addEnchantment(Enchantment.efficiency, 2);
-                addExcavator(excavatorStack, "ingotSteeleaf");
-            }
-            if (shouldAdd("ingotIronwood")) {
-                ItemStack excavatorStack = new ItemStack(IRONWOOD.getExcavatorItem());
-                excavatorStack.addEnchantment(Enchantment.unbreaking, 1);
-                addExcavator(excavatorStack, "ingotIronwood");
-            }
-            if (shouldAdd("ingotFiery")) {
-                GameRegistry.addRecipe(new ShapedOreRecipe(FIERY.getExcavatorItem(),
-                        "XXX", "XPX", " P ",
-                        'X', "ingotFiery",
-                        'P', Item.blazeRod));
-            }
-
-        }
-        if (shouldRegister("ExtraUtilities")) {
-            if (shouldAdd("ingotUnstable")) {
                 GameRegistry.addRecipe(new ShapedOreRecipe(UNSTABLE.getExcavatorItem(),
                         "XXX", "XPX", " P ",
+                        'X', "ingotUnstable",
+                        'P', Block.obsidian));
+
+                GameRegistry.addRecipe(new ShapedOreRecipe(UNSTABLE.getSickleItem(),
+                        " X ", "  X", "PX ",
                         'X', "ingotUnstable",
                         'P', Block.obsidian));
             }
@@ -205,5 +205,19 @@ public class Tools {
         GameRegistry.addRecipe(new ShapedOreRecipe(shears,
                 "X ", " X",
                 'X', material));
+    }
+
+    public static void addSickle(Item hammer, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(hammer,
+                " X ", "  X", "PX ",
+                'X', material,
+                'P', Item.stick));
+    }
+
+    public static void addSickle(ItemStack hammer, Object material) {
+        GameRegistry.addRecipe(new ShapedOreRecipe(hammer,
+                " X ", "  X", "PX ",
+                'X', material,
+                'P', Item.stick));
     }
 }
