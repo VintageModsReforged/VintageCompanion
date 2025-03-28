@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemIronWoodHammer extends ItemBaseHammer {
 
     public ItemIronWoodHammer(int id) {
-        super(id, Materials.IRONWOOD.getToolMaterial(), Materials.IRONWOOD.getName());
+        super(id, Materials.IRONWOOD, Materials.IRONWOOD.getName());
     }
 
     @SuppressWarnings("all")

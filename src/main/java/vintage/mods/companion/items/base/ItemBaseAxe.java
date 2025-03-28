@@ -5,10 +5,10 @@ import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import vintage.mods.companion.Refs;
+import vintage.mods.companion.items.Materials;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,10 +17,10 @@ public class ItemBaseAxe extends ItemBaseMiningTool {
 
     public Set<Material> mineableBlockMaterials = new HashSet<Material>();
 
-    public ItemBaseAxe(int id, EnumToolMaterial material, String name) {
-        super(id, material.getDamageVsEntity(), material, name);
+    public ItemBaseAxe(int id, Materials material, String name) {
+        super(id, material.getToolMaterial().getDamageVsEntity(), material, name);
         this.setUnlocalizedName(name + ".axe");
-        MinecraftForge.setToolClass(this, "axe", material.getHarvestLevel());
+        MinecraftForge.setToolClass(this, "axe", material.getToolMaterial().getHarvestLevel());
         init();
     }
 

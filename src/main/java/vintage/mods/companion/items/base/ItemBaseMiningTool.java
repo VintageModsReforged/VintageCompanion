@@ -1,28 +1,44 @@
 package vintage.mods.companion.items.base;
 
+import mods.vintage.core.helpers.StackHelper;
 import net.minecraft.block.Block;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemTool;
 import net.minecraft.world.World;
 import net.minecraftforge.event.ForgeEventFactory;
 import vintage.mods.companion.VintageCompanion;
+import vintage.mods.companion.items.Materials;
 
 import java.util.Locale;
 
 public class ItemBaseMiningTool extends ItemTool {
 
     public String name;
+    private final Materials.Ingredient repairs;
 
-    public ItemBaseMiningTool(int id, int attack, EnumToolMaterial material, String name) {
-        super(id, attack, material, new Block[0]);
+    public ItemBaseMiningTool(int id, int attack, Materials material, String name) {
+        super(id, attack, material.getToolMaterial(), new Block[0]);
         this.name = name;
         this.setMaxStackSize(1);
         this.setCreativeTab(VintageCompanion.TAB);
+        this.repairs = material.getIngredients();
     }
+
+    @Override
+    public boolean getIsRepairable(ItemStack tool, ItemStack repair) {
+        for (String in : this.repairs.getItems()) {
+            for (ItemStack validRepair : StackHelper.getStackFromOre(in)) {
+                if (StackHelper.areStacksEqual(validRepair, repair)) {
+                    return true;
+                }
+            }
+        }
+        return super.getIsRepairable(tool, repair);
+    }
+
 
     public void init() {}
 
@@ -64,12 +80,7 @@ public class ItemBaseMiningTool extends ItemTool {
     }
 
     @Override
-    public boolean onBlockStartBreak(ItemStack stack, int X, int Y, int Z, EntityPlayer player) {
-        return super.onBlockStartBreak(stack, X, Y, Z, player);
-    }
-
-    @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, int id, int x, int y, int z, EntityLiving entity) {
-        return super.onBlockDestroyed(stack, world, id, x, y, z, entity);
+        return true;
     }
 }

@@ -14,7 +14,7 @@ import java.util.List;
 public class ItemSteeleafExcavator extends ItemBaseExcavator {
 
     public ItemSteeleafExcavator(int id) {
-        super(id, Materials.STEELEAF.getToolMaterial(), Materials.STEELEAF.getName());
+        super(id, Materials.STEELEAF, Materials.STEELEAF.getName());
     }
 
     @SuppressWarnings("all")

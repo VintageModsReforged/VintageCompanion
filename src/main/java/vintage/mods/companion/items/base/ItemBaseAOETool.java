@@ -1,6 +1,5 @@
 package vintage.mods.companion.items.base;
 
-import vintage.mods.companion.CompanionConfig;
 import mods.vintage.core.helpers.BlockHelper;
 import mods.vintage.core.helpers.ToolHelper;
 import mods.vintage.core.helpers.pos.BlockPos;
@@ -9,10 +8,12 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
+import vintage.mods.companion.CompanionConfig;
+import vintage.mods.companion.items.Materials;
 
 public class ItemBaseAOETool extends ItemBaseMiningTool {
 
-    public ItemBaseAOETool(int id, EnumToolMaterial material, String name) {
+    public ItemBaseAOETool(int id, Materials material, String name) {
         super(id, 0, material, name);
     }
 

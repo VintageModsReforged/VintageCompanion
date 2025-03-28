@@ -21,7 +21,7 @@ import java.util.List;
 public class ItemFieryHammer extends ItemBaseHammer {
 
     public ItemFieryHammer(int id) {
-        super(id, Materials.FIERY.getToolMaterial(), Materials.FIERY.getName());
+        super(id, Materials.FIERY, Materials.FIERY.getName());
     }
 
     @SuppressWarnings("all")
@@ -33,9 +33,9 @@ public class ItemFieryHammer extends ItemBaseHammer {
 
     @Override
     public boolean getIsRepairable(ItemStack tool, ItemStack repair) {
-        ItemStack ironwoodStack = ItemRefs.getIronwoodStack();
-        if (ironwoodStack != null) {
-            return repair.itemID == ironwoodStack.itemID;
+        ItemStack fieryStack = ItemRefs.getFieryStack();
+        if (fieryStack != null) {
+            return repair.itemID == fieryStack.itemID;
         } else return super.getIsRepairable(tool, repair);
     }
 

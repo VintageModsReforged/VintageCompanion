@@ -2,13 +2,13 @@ package vintage.mods.companion.items.base;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.item.EnumToolMaterial;
-import vintage.mods.companion.Refs;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import vintage.mods.companion.Refs;
+import vintage.mods.companion.items.Materials;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -17,10 +17,10 @@ public class ItemBaseHammer extends ItemBaseAOETool {
 
     public Set<Material> mineableBlockMaterials = new HashSet<Material>();
 
-    public ItemBaseHammer(int id, EnumToolMaterial material, String name) {
+    public ItemBaseHammer(int id, Materials material, String name) {
         super(id, material, name);
         this.setUnlocalizedName(name + ".hammer");
-        MinecraftForge.setToolClass(this, "pickaxe", material.getHarvestLevel());
+        MinecraftForge.setToolClass(this, "pickaxe", material.getToolMaterial().getHarvestLevel());
         init();
     }
 

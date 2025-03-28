@@ -21,8 +21,13 @@ public class ItemUnstableExcavator extends ItemBaseExcavator implements IItemMul
     private Icon[] icons;
 
     public ItemUnstableExcavator(int id) {
-        super(id, Materials.UNSTABLE.getToolMaterial(), Materials.UNSTABLE.getName());
+        super(id, Materials.UNSTABLE, Materials.UNSTABLE.getName());
         this.setMaxDamage(-1);
+    }
+
+    @Override
+    public boolean isRepairable() {
+        return false;
     }
 
     @SuppressWarnings("all")
