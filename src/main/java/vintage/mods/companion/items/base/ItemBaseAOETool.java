@@ -5,7 +5,6 @@ import mods.vintage.core.helpers.ToolHelper;
 import mods.vintage.core.helpers.pos.BlockPos;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 import vintage.mods.companion.CompanionConfig;
@@ -34,7 +33,7 @@ public class ItemBaseAOETool extends ItemBaseMiningTool {
                     if (!BlockHelper.isAir(world, pos)) {
                         float strength = adjBlock.getBlockHardness(world, pos.getX(), pos.getY(), pos.getZ());
                         if (strength > 0f && strength / refStrength <= 8f) {
-                            if ((getStrVsBlock(stack, adjBlock, world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ())) > 0.0F && canHarvestBlock(adjBlock)) && ToolHelper.harvestBlock(world, pos.getX(), pos.getY(), pos.getZ(), player)) {
+                            if ((getStrVsBlock(stack, adjBlock, world.getBlockMetadata(pos.getX(), pos.getY(), pos.getZ())) > 0.0F && canHarvestBlock(adjBlock)) && ToolHelper.harvestAndDrop(world, pos.getX(), pos.getY(), pos.getZ(), player, getToolAction())) {
                                 mined++;
                             }
                         }
