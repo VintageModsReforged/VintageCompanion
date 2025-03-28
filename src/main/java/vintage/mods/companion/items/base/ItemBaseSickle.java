@@ -97,7 +97,7 @@ public class ItemBaseSickle extends ItemBaseMiningTool {
             case GOLD:
                 return 1;
             case STONE:
-            case ALUM:
+            case ALUMINIUM:
             case COPPER:
             case LEAD:
             case SILVER:
