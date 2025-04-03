@@ -4,6 +4,7 @@ import mods.vintage.core.helpers.BlockHelper;
 import mods.vintage.core.helpers.ToolHelper;
 import mods.vintage.core.helpers.pos.BlockPos;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
@@ -40,12 +41,19 @@ public class ItemBaseAOETool extends ItemBaseMiningTool {
                     }
                 }
                 if (mined > 0) {
-                    stack.damageItem((int) (mined * CompanionConfig.durability_factor), player);
+                    int damage = (int) (mined * CompanionConfig.durability_factor);
+                    stack.damageItem(damage, player);
                 }
             } else {
                 return super.onBlockStartBreak(stack, x, y, z, player);
             }
         }
         return false;
+    }
+
+    /// We handle damaging for this one inside {@link net.minecraft.item.Item#onBlockStartBreak(ItemStack, int, int, int, EntityPlayer)}
+    @Override
+    public boolean onBlockDestroyed(ItemStack stack, World world, int id, int x, int y, int z, EntityLiving living) {
+        return true;
     }
 }

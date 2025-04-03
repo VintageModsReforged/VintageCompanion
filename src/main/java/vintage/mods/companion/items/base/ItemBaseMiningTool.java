@@ -104,11 +104,6 @@ public class ItemBaseMiningTool extends ItemTool {
         return super.onItemUse(stack, player, world, x, y, z, side, xOffset, yOffset, zOffset);
     }
 
-    @Override
-    public boolean onBlockDestroyed(ItemStack stack, World world, int id, int x, int y, int z, EntityLiving entity) {
-        return true;
-    }
-
     @SuppressWarnings("all")
     @Override
     @SideOnly(Side.CLIENT)
