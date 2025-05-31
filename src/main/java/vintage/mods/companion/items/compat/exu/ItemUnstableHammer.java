@@ -22,6 +22,12 @@ public class ItemUnstableHammer extends ItemBaseHammer implements IItemMultiTran
         this.setMaxDamage(-1);
     }
 
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean hasEffect(ItemStack stack) {
+        return false;
+    }
+
     @Override
     public boolean isRepairable() {
         return false;

@@ -27,6 +27,12 @@ public class ItemUnstableSickle extends ItemBaseSickle implements IItemMultiTran
         return false;
     }
 
+    @SideOnly(Side.CLIENT)
+    @Override
+    public boolean hasEffect(ItemStack stack) {
+        return false;
+    }
+
     @Override
     @SideOnly(Side.CLIENT)
     public void registerIcons(IconRegister registry) {
