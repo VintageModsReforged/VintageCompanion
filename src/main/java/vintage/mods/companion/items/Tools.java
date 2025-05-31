@@ -94,7 +94,7 @@ public class Tools {
                         'P', Item.blazeRod));
 
                 GameRegistry.addRecipe(new ShapedOreRecipe(FIERY.getExcavatorItem(),
-                        "XXX", "XPX", " P ",
+                        " X ", "XPX", " P ",
                         'X', "ingotFiery",
                         'P', Item.blazeRod));
 
@@ -115,7 +115,7 @@ public class Tools {
                         'P', Block.obsidian));
 
                 GameRegistry.addRecipe(new ShapedOreRecipe(UNSTABLE.getExcavatorItem(),
-                        "XXX", "XPX", " P ",
+                        " X ", "XPX", " P ",
                         'X', "ingotUnstable",
                         'P', Block.obsidian));
 
