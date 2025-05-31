@@ -76,7 +76,7 @@ public class VintageCompanion implements ILangProvider {
         }
         if (Loader.isModLoaded("Thaumcraft")) {
             Item thaumiumIngotStack = ItemRefs.thaumiumStack().get();
-            OreDictionary.registerOre("ingotThaumium", thaumiumIngotStack);
+            OreDictionary.registerOre("ingotThaumium", new ItemStack(thaumiumIngotStack, 1, 2));
         }
         Tools.init();
         PROXY.registerRenderInformation();
