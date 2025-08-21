@@ -1,13 +1,14 @@
 package vintage.mods.companion.items;
 
+import mods.vintage.core.utils.LazyEntry;
+import mods.vintage.core.utils.function.Supplier;
+import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import vintage.mods.companion.CompanionConfig;
-import net.minecraft.item.EnumToolMaterial;
 import vintage.mods.companion.items.base.*;
 import vintage.mods.companion.items.compat.exu.ItemUnstableExcavator;
 import vintage.mods.companion.items.compat.exu.ItemUnstableHammer;
 import vintage.mods.companion.items.compat.exu.ItemUnstableSickle;
-import vintage.mods.companion.utils.LazyEntry;
 
 import java.util.Locale;
 
@@ -69,7 +70,7 @@ public enum Materials implements IToolsProvider {
         this.MATERIAL = material;
         this.ingredients = ingredients;
         this.toolType = builder;
-        this.hammerItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.hammerItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasHammer()) {
@@ -82,7 +83,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.excavatorItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.excavatorItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasExcavator()) {
@@ -95,7 +96,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.pickaxeItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.pickaxeItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasPickaxe()) {
@@ -106,7 +107,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.swordItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.swordItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasSword()) {
@@ -117,7 +118,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.shovelItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.shovelItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasShovel()) {
@@ -128,7 +129,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.hoeItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.hoeItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasHoe()) {
@@ -139,7 +140,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.axeItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.axeItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasAxe()) {
@@ -150,7 +151,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.shearsItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.shearsItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasShears()) {
@@ -161,7 +162,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.sickleItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.sickleItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasSickle()) {
@@ -174,7 +175,7 @@ public enum Materials implements IToolsProvider {
             }
         });
 
-        this.bowItem = new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        this.bowItem = new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 if (builder.hasBow()) {

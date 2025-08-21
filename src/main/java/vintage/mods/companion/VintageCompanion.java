@@ -5,23 +5,19 @@ import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
-import net.minecraft.block.Block;
-import vintage.mods.companion.items.Materials;
-import vintage.mods.companion.items.Tools;
-import vintage.mods.companion.items.compat.ItemRefs;
-import vintage.mods.companion.proxy.CommonProxy;
-import mods.vintage.core.platform.lang.ILangProvider;
 import mods.vintage.core.platform.lang.LangManager;
+import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.oredict.OreDictionary;
-
-import java.util.Arrays;
-import java.util.List;
+import vintage.mods.companion.items.Materials;
+import vintage.mods.companion.items.Tools;
+import vintage.mods.companion.items.compat.ItemRefs;
+import vintage.mods.companion.proxy.CommonProxy;
 
 @Mod(modid = Refs.id, name = Refs.name, dependencies = VintageCompanion.deps, useMetadata = true)
-public class VintageCompanion implements ILangProvider {
+public class VintageCompanion {
 
     public static final String deps = "required-after:VintageCore;" +
             "after:ExtraUtilities;" +
@@ -49,8 +45,7 @@ public class VintageCompanion implements ILangProvider {
     @Mod.PreInit
     public void preInit(FMLPreInitializationEvent e) {
         CompanionConfig.init();
-        LangManager.THIS.registerLangProvider(this);
-        LangManager.THIS.loadCreativeTabName(Refs.id, Refs.name);
+        LangManager.INSTANCE.loadCreativeTabName(Refs.id, Refs.name);
     }
 
     @Mod.Init
@@ -80,15 +75,5 @@ public class VintageCompanion implements ILangProvider {
         }
         Tools.init();
         PROXY.registerRenderInformation();
-    }
-
-    @Override
-    public String getModid() {
-        return Refs.id;
-    }
-
-    @Override
-    public List<String> getLocalizationList() {
-        return Arrays.asList(CompanionConfig.languages);
     }
 }

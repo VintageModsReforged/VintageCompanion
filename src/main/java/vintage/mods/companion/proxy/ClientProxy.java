@@ -1,8 +1,8 @@
 package vintage.mods.companion.proxy;
 
 import cpw.mods.fml.common.Loader;
-import vintage.mods.companion.items.Materials;
 import net.minecraftforge.client.MinecraftForgeClient;
+import vintage.mods.companion.items.Materials;
 
 public class ClientProxy extends CommonProxy {
 

@@ -4,7 +4,7 @@ import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.vintage.core.helpers.StackHelper;
 import mods.vintage.core.helpers.ToolHelper;
-import mods.vintage.core.platform.lang.FormattedTranslator;
+import mods.vintage.core.platform.lang.Translator;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -42,13 +42,13 @@ public class ItemBaseMiningTool extends ItemTool {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean debug) {
         super.addInformation(stack, player, list, debug);
         if (this.material == Materials.UNSTABLE) {
-            list.add(FormattedTranslator.GRAY.format("tooltips.info.durability", FormattedTranslator.RED.format("tooltips.info.durability.unbreakable")));
-            list.add(FormattedTranslator.RED.format("tooltips.info.warning.craft"));
+            list.add(Translator.GRAY.format("tooltips.info.durability", Translator.RED.format("tooltips.info.durability.unbreakable")));
+            list.add(Translator.RED.format("tooltips.info.warning.craft"));
         } else {
-            list.add(FormattedTranslator.GRAY.format("tooltips.info.durability", FormattedTranslator.AQUA.literal((stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage())));
+            list.add(Translator.GRAY.format("tooltips.info.durability", Translator.AQUA.literal((stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage())));
         }
         if (this.material == Materials.FIERY) {
-            list.add(FormattedTranslator.YELLOW.format("tooltips.info.auto_smelting"));
+            list.add(Translator.YELLOW.format("tooltips.info.auto_smelting"));
         }
     }
 

@@ -3,7 +3,8 @@ package vintage.mods.companion.items.base;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.vintage.core.helpers.StackHelper;
-import mods.vintage.core.platform.lang.FormattedTranslator;
+import mods.vintage.core.platform.lang.Translator;
+import mods.vintage.core.utils.Tuple;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -66,45 +67,45 @@ public class ItemBaseBow extends ItemBow {
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean debug) {
         super.addInformation(stack, player, list, debug);
         if (this.material == Materials.UNSTABLE) {
-            list.add(FormattedTranslator.GRAY.format("tooltips.info.durability", FormattedTranslator.RED.format("tooltips.info.durability.unbreakable")));
-            list.add(FormattedTranslator.RED.format("tooltips.info.warning.craft"));
+            list.add(Translator.GRAY.format("tooltips.info.durability", Translator.RED.format("tooltips.info.durability.unbreakable")));
+            list.add(Translator.RED.format("tooltips.info.warning.craft"));
         } else {
-            list.add(FormattedTranslator.GRAY.format("tooltips.info.durability", FormattedTranslator.AQUA.literal((stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage())));
+            list.add(Translator.GRAY.format("tooltips.info.durability", Translator.AQUA.literal((stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage())));
         }
     }
 
-    public Pair<Float, Float> getBowStats() {
+    public Tuple<Float, Float> getBowStats() {
         switch (material) {
             case STONE:
             case COPPER:
-                return new Pair<Float, Float>(1.25f, 1.2f);
+                return new Tuple<Float, Float>(1.25f, 1.2f);
             case IRON:
             case BRONZE:
-                return new Pair<Float, Float>(1.5f, 1.3f);
+                return new Tuple<Float, Float>(1.5f, 1.3f);
             case GOLD:
-                return new Pair<Float, Float>(1.0f, 1.6f);
+                return new Tuple<Float, Float>(1.0f, 1.6f);
             case DIAMOND:
-                return new Pair<Float, Float>(1.75f, 1.4f);
+                return new Tuple<Float, Float>(1.75f, 1.4f);
             case TIN:
-                return new Pair<Float, Float>(1.25f, 1.23f);
+                return new Tuple<Float, Float>(1.25f, 1.23f);
             case SILVER:
-                return new Pair<Float, Float>(1.25f, 1.3f);
+                return new Tuple<Float, Float>(1.25f, 1.3f);
             case LEAD:
-                return new Pair<Float, Float>(1.25f, 1.25f);
+                return new Tuple<Float, Float>(1.25f, 1.25f);
             case ALUMINIUM:
-                return new Pair<Float, Float>(1.25f, 1.5f);
+                return new Tuple<Float, Float>(1.25f, 1.5f);
             case NICKEL:
             case INVAR:
             case STEEL:
-                return new Pair<Float, Float>(1.63f, 1.33f);
+                return new Tuple<Float, Float>(1.63f, 1.33f);
             case PLATINUM:
-                return new Pair<Float, Float>(1.88f, 1.45f);
+                return new Tuple<Float, Float>(1.88f, 1.45f);
             case ELECTRUM:
-                return new Pair<Float, Float>(1.13f, 1.7f);
+                return new Tuple<Float, Float>(1.13f, 1.7f);
             case CONSTANTAN:
-                return new Pair<Float, Float>(1.38f, 1.3f);
+                return new Tuple<Float, Float>(1.38f, 1.3f);
             default:
-                return new Pair<Float, Float>(1.25f, 2f);
+                return new Tuple<Float, Float>(1.25f, 2f);
         }
     }
 
@@ -142,10 +143,10 @@ public class ItemBaseBow extends ItemBow {
             int enchantKnockback = EnchantmentHelper.getEnchantmentLevel(Enchantment.punch.effectId, stack);
             int enchantFire = EnchantmentHelper.getEnchantmentLevel(Enchantment.flame.effectId, stack);
 
-            Pair<Float, Float> stats = getBowStats();
+            Tuple<Float, Float> stats = getBowStats();
 
-            EntityArrow arrow = new EntityArrow(world, player, drawStrength * stats.getSpeed());
-            double damage = arrow.getDamage() * stats.getDamage();
+            EntityArrow arrow = new EntityArrow(world, player, drawStrength * stats.getSecond());
+            double damage = arrow.getDamage() * stats.getFirst();
             arrow.setDamage(damage);
 
             if (drawStrength == 1.0F) {
@@ -199,24 +200,5 @@ public class ItemBaseBow extends ItemBow {
             }
         }
         return itemIcon;
-    }
-
-    public static class Pair<DAMAGE, SPEED> {
-
-        public DAMAGE damage;
-        public SPEED speed;
-
-        public Pair(DAMAGE damage, SPEED speed) {
-            this.damage = damage;
-            this.speed = speed;
-        }
-
-        public DAMAGE getDamage() {
-            return this.damage;
-        }
-
-        public SPEED getSpeed() {
-            return this.speed;
-        }
     }
 }

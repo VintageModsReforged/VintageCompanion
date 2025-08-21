@@ -1,12 +1,15 @@
 package vintage.mods.companion;
 
 import mods.vintage.core.helpers.ConfigHelper;
+import mods.vintage.core.platform.lang.LocalizationProvider;
 import net.minecraftforge.common.Configuration;
 
+@LocalizationProvider
 public class CompanionConfig {
 
     public static Configuration main_config;
 
+    @LocalizationProvider.List(modId = Refs.id)
     public static String[] languages;
     public static double durability_factor = 1.0D;
 

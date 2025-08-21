@@ -3,7 +3,7 @@ package vintage.mods.companion.items.base;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import mods.vintage.core.helpers.StackHelper;
-import mods.vintage.core.platform.lang.FormattedTranslator;
+import mods.vintage.core.platform.lang.Translator;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemShears;
@@ -35,7 +35,7 @@ public class ItemBaseShears extends ItemShears {
     @Override
     public void addInformation(ItemStack stack, EntityPlayer player, List list, boolean debug) {
         super.addInformation(stack, player, list, debug);
-        list.add(FormattedTranslator.GRAY.format("tooltips.info.durability", FormattedTranslator.AQUA.literal((stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage())));
+        list.add(Translator.GRAY.format("tooltips.info.durability", Translator.AQUA.literal((stack.getMaxDamage() - stack.getItemDamage()) + " / " + stack.getMaxDamage())));
     }
 
     @SideOnly(Side.CLIENT)

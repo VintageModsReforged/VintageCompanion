@@ -41,7 +41,7 @@ dependencies {
 	forge "net.minecraftforge:forge:${forgeVersion}:universal@zip"
 	mappings "net.minecraftforge:forge:${forgeVersion}:src@zip"
 	// core
-	modImplementation files("/libs/VintageCore-1.5.2-1.0.5.1-dev.jar")
+	modImplementation files("/libs/VintageCore-1.5.2-2.0.0-dev.jar")
 	// compat
 	modImplementation files("/libs/compat/ic2.jar")
 	modImplementation files("/libs/compat/gt.zip")
@@ -53,4 +53,11 @@ dependencies {
 	modImplementation files("/libs/compat/nrp.jar")
 	// testing
 	modImplementation files("/libs/CraftGuide-1.6.7.3-forge.zip")
+}
+
+processResources {
+	inputs.property 'version', version
+	filesMatching('mcmod.info') {
+		expand version: version
+	}
 }

@@ -1,7 +1,8 @@
 package vintage.mods.companion.items.compat;
 
+import mods.vintage.core.utils.LazyEntry;
+import mods.vintage.core.utils.function.Supplier;
 import net.minecraft.item.Item;
-import vintage.mods.companion.utils.LazyEntry;
 
 public class ItemRefs {
 
@@ -13,7 +14,7 @@ public class ItemRefs {
 
     public static LazyEntry<Item> unstableStack() {
         final Item placeholder = getItem(EXU_ITEM_CLASS, "unstableIngot");
-        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        return new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 return placeholder;
@@ -23,7 +24,7 @@ public class ItemRefs {
 
     public static LazyEntry<Item> steeleafStack() {
         final Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "steeleafIngot");
-        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        return new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 return placeholder;
@@ -33,7 +34,7 @@ public class ItemRefs {
 
     public static LazyEntry<Item> ironwoodStack() {
         final Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "ironwoodIngot");
-        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        return new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 return placeholder;
@@ -43,7 +44,7 @@ public class ItemRefs {
 
     public static LazyEntry<Item> fieryStack() {
         final Item placeholder = getItem(TWILIGHT_FOREST_ITEM_CLASS, "fieryIngot");
-        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        return new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 return placeholder;
@@ -53,7 +54,7 @@ public class ItemRefs {
 
     public static LazyEntry<Item> thaumiumStack() {
         final Item placeholder = getItem(THAUMCRAFT_ITEM_CLASS, "itemResource");
-        return new LazyEntry<Item>(new LazyEntry.Supplier<Item>() {
+        return new LazyEntry<Item>(new Supplier<Item>() {
             @Override
             public Item get() {
                 return placeholder;
