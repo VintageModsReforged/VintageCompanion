@@ -1,14 +1,9 @@
 [
   {
-    "modid": "vintagecompanion",
-    "name": "Vintage Companion",
-    "description": "Companion tools for minecraft",
-    "version": "${version}",
-    "mcversion": "1.5.2",
-    "url": "https://github.com/VintageModsReforged/VintageCompanion",
-    "updateUrl": "https://github.com/VintageModsReforged/VintageCompanion/releases",
-    "authors": [
-      "CrossVas"
-    ]
+    "modid": "${modid}",
+    "name": "${modName}",
+    "description": "${modDescription}",
+    "version": "${modVersion}",
+    "authors": ["${modAuthors}"]
   }
 ]

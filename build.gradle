@@ -55,9 +55,9 @@ dependencies {
 	modImplementation files("/libs/CraftGuide-1.6.7.3-forge.zip")
 }
 
+def props = ['modName', 'modid', 'modVersion', 'modDescription', 'modAuthors']
 processResources {
-	inputs.property 'version', version
-	filesMatching('mcmod.info') {
-		expand version: version
+	filesMatching("mcmod.info") {
+		expand(project.properties.subMap(props))
 	}
 }
