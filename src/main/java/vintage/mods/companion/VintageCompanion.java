@@ -16,7 +16,7 @@ import vintage.mods.companion.items.Tools;
 import vintage.mods.companion.items.compat.ItemRefs;
 import vintage.mods.companion.proxy.CommonProxy;
 
-@Mod(modid = Refs.id, name = Refs.name, dependencies = VintageCompanion.deps, useMetadata = true)
+@Mod(modid = Refs.id, useMetadata = true)
 public class VintageCompanion {
 
     public static final String deps = "required-after:VintageCore;" +
