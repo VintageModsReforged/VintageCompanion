@@ -10,24 +10,16 @@ import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.oredict.OreDictionary;
 import vintage.mods.companion.items.Materials;
 import vintage.mods.companion.items.Tools;
 import vintage.mods.companion.items.compat.ItemRefs;
 import vintage.mods.companion.proxy.CommonProxy;
+import vintage.mods.companion.utils.AOERenderHandler;
 
 @Mod(modid = Refs.id, useMetadata = true)
 public class VintageCompanion {
-
-    public static final String deps = "required-after:VintageCore;" +
-            "after:ExtraUtilities;" +
-            "after:TwilightForest;" +
-            "after:Thaumcraft;" +
-            "after:IC2;" +
-            "after:Forestry;" +
-            "after:GregTech_Addon;" +
-            "after:NumiRP;" +
-            "after:AppliedEnergistics";
 
     public static CreativeTabs TAB = new CreativeTabs(Refs.id) {
 
@@ -46,6 +38,7 @@ public class VintageCompanion {
     public void preInit(FMLPreInitializationEvent e) {
         CompanionConfig.init();
         LangManager.INSTANCE.loadCreativeTabName(Refs.id, Refs.name);
+        MinecraftForge.EVENT_BUS.register(new AOERenderHandler());
     }
 
     @Mod.Init
