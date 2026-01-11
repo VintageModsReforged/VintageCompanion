@@ -6,9 +6,11 @@ import extrautils.item.IItemMultiTransparency;
 import mods.vintage.core.helpers.BlockHelper;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
+import net.minecraft.world.World;
 import vintage.mods.companion.Refs;
 import vintage.mods.companion.items.Materials;
 import vintage.mods.companion.items.base.ItemBaseExcavator;
@@ -43,12 +45,15 @@ public class ItemUnstableExcavator extends ItemBaseExcavator implements IItemMul
     }
 
     @Override
-    public boolean onBlockStartBreak(ItemStack stack, int x, int y, int z, EntityPlayer player) {
-        Block block = BlockHelper.getBlock(player.worldObj, x, y, z);
+    public boolean onBlockDestroyed(ItemStack stack, World world, int id, int x, int y, int z, EntityLiving entity) {
+        Block block = BlockHelper.getBlock(world, x, y, z);
+        if (!(entity instanceof EntityPlayer)) return true;
+        if (block == null) return true;
+        if (block.getBlockHardness(world, x, y, z) <= 0F) return true;
         if (!canHarvest(block)) {
-            stack.damageItem(1, player);
-        } else return super.onBlockStartBreak(stack, x, y, z, player);
-        return false;
+            stack.damageItem(1, entity);
+        }
+        return true;
     }
 
     @Override
