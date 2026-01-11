@@ -5,6 +5,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 import mods.vintage.core.helpers.StackHelper;
 import mods.vintage.core.helpers.ToolHelper;
 import mods.vintage.core.platform.lang.Translator;
+import mods.vintage.core.utils.IHarvestCallback;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.enchantment.Enchantment;
@@ -138,7 +139,7 @@ public class ItemBaseMiningTool extends ItemTool {
         return result;
     }
 
-    public ToolHelper.IDropCallback getToolAction() {
+    public IHarvestCallback getToolAction() {
         if (this.material == Materials.FIERY) {
             return ToolAction.smelt();
         } else return ToolHelper.simpleHarvest();
